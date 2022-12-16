@@ -1,5 +1,5 @@
 ---
-title: film
+title: Film
 description: Useful notes about film
 ---
 

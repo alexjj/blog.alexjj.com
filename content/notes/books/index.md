@@ -1,5 +1,5 @@
 ---
-title: books
+title: Books
 description: All about books
 ---
 
