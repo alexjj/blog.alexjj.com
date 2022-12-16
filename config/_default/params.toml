@@ -17,7 +17,7 @@ enableCodeCopy = false
 
 [header]
   layout = "hybrid" # valid options: basic, hamburger, hybrid, custom
-  logo = "img/Cat.png"
+  logo = "img/cat-logo.png"
   showTitle = false
 
 [footer]
@@ -52,7 +52,7 @@ enableCodeCopy = false
 
 [list]
   showBreadcrumbs = false
-  showSummary = false
+  showSummary = true
   showTableOfContents = false
   showTaxonomies = false
   groupByYear = true

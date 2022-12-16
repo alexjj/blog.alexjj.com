@@ -14,9 +14,9 @@ dateFormat = "2 January 2006"
 
 [author]
 name = "Alex Johnstone"
-  # image = "img/author.jpg"
-  # headline = "I'm only human"
-  # bio = "A little bit about you"
+image = "img/me.jpg"
+#headline = "Fond of tea"
+bio = "Messes with stuff"
 links = [
       { email = "mailto:alex@alexjj.com" },
   #   { link = "https://link-to-some-website.com/" },
@@ -51,7 +51,7 @@ links = [
   #   { snapchat = "https://snapchat.com/add/username" },
   #   { soundcloud = "https://soundcloud.com/username" },
   #   { stack-overflow = "https://stackoverflow.com/users/userid/username" },
-  #   { steam = "https://steamcommunity.com/id/captainlag/" },
+     { steam = "https://steamcommunity.com/id/captainlag/" },
   #   { telegram = "https://t.me/username" },
   #   { tiktok = "https://tiktok.com/@username" },
   #   { tumblr = "https://username.tumblr.com" },
