@@ -16,14 +16,14 @@
   weight = 10
 
 [[main]]
-  name = "Tags"
-  pageRef = "tags"
+  name = "About"
+  pageRef = "about"
   weight = 20
 
 [[main]]
-  name = "Wiki"
+  name = "Wiki🌐"
   url = "https://wiki.alexjj.com"
-  weight = 30
+  weight = 40
 
 
 
@@ -35,4 +35,9 @@
 [[footer]]
   name = "Tags"
   pageRef = "tags"
+  weight = 20
+
+[[footer]]
+  name = "Categories"
+  pageRef = "categories"
   weight = 10
