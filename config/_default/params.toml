@@ -18,7 +18,7 @@ enableCodeCopy = false
 [header]
   layout = "hybrid" # valid options: basic, hamburger, hybrid, custom
   logo = "img/cat-logo.png"
-  showTitle = false
+  showTitle = true
 
 [footer]
   showCopyright = true
