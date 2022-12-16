@@ -1,11 +1,10 @@
 ---
 date: 2021-09-27
-title: "My favourite teapot"
+title: "My favourite teapot 🫖"
 tags: "lifestyle"
-description: What a lovely teapot. Excellent spout.
+Summary: What a lovely teapot. Excellent spout.
 ---
 
-# My favourite teapot 🫖
 
 {{< lead >}}
 Yes, I'm very fond of tea.
