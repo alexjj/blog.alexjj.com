@@ -3,6 +3,7 @@ title: Film
 description: Useful notes about film
 date: 2022-12-16
 showDate: false
+Summary: "Development and uses"
 ---
 
 {{< lead >}}

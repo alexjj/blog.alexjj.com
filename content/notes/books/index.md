@@ -2,6 +2,7 @@
 title: Books
 description: All about books
 layout: simple
+summary: "Read them all"
 date: 2022-12-16
 ---
 
