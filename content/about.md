@@ -24,7 +24,4 @@ Contrary to this, I do like time  away from a computer. Reading fiction, writing
 
 ## Sundries
 
-* [Books I've read](/books)
-* What I'm doing [now](/now)
-* [My wiki](https://wiki.alexjj.com)
-* [Email me](alex@alexjj.com)
+* [Books I've read](/notes/books)
