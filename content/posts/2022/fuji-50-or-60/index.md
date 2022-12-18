@@ -26,7 +26,7 @@ They're both similar in size and weight, except when you put the massive metal h
 ![50mm on scales](fuji-50-60-3.jpg "Lightweight 50mm")
 ![60mm on scales](fuji-50-60-4.jpg "That hood")
 
-Being 60mm, you do get more subject separation than the 50mm, even with the fraction slower speed. So for portraits - where people are standing still - the 60mm is probably better. It's also of the old, original set of Fuji lenses (along with the [35mm f/1.4]({{< ref "/2022/new-fuji-lens" >}}) and the 56 f/1.2), which means it has a slightly different look than the modern ones. Good or bad? That's personal preference. I certainly like the 35mm one.
+Being 60mm, you do get more subject separation than the 50mm, even with the fraction slower speed. So for portraits - where people are standing still - the 60mm is probably better. It's also of the old, original set of Fuji lenses (along with the [35mm f/1.4](/2022/new-fuji-lens/) and the 56 f/1.2), which means it has a slightly different look than the modern ones. Good or bad? That's personal preference. I certainly like the 35mm one.
 
 f/2.4 vs f/2 is not really much different, although I've not done sharpness tests etc., for that you'll have to look elsewhere.
 
