@@ -1,7 +1,7 @@
 ---
-title: Generating lots of tiddlers
+title: "Generating lots of tiddlers"
 date: 2021-12-15
-summary: Programmatically creating tiddlers JSON
+summary: "Programmatically creating tiddlers JSON"
 tags: ["Python", "Tiddlywiki"]
 ---
 

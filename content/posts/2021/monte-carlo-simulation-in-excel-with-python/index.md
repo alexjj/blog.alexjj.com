@@ -1,7 +1,7 @@
 ---
-title: Monte Carlo Simulation in Excel with Python
+title: "Monte Carlo Simulation in Excel with Python"
 date: 2021-11-25
-summary: Simulating the possible with python and excel
+summary: "Simulating the possible with python and excel"
 tags: ["Python", "Excel"]
 ---
 

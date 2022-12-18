@@ -2,7 +2,7 @@
 date: 2021-09-27
 title: "My favourite teapot 🫖"
 tags: "Lifestyle"
-Summary: What a lovely teapot. Excellent spout.
+Summary: "What a lovely teapot. Excellent spout."
 ---
 
 
