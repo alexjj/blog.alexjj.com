@@ -32,7 +32,7 @@ f/2.4 vs f/2 is not really much different, although I've not done sharpness test
 
 The obvious difference is that the 60mm has close focus for macro - this was the very reason I bought it. I'm not sure 60mm is a great macro length and it's not a perfect 1:1 macro, so YMMV. I'm thinking about replacing mine as for film scanning I can't make use of the full sensor area with this lens, so seems like a waste.
 
-Speaking of focusing...oh my how the 60mm is slow compared to the 50mm. It's not super slow, and perfectly usable even for kids running around but it's not the 🫰 and you're there focus of the 50mm. Having said that, the 50mm often missed focus on kids running around so not perfect either.
+Speaking of focusing...oh my, how the 60mm is slow compared to the 50mm. It's not super slow, and perfectly usable even for kids running around but it's not the 🫰 and you're there focus of the 50mm. Having said that, the 50mm often missed focus on kids running around so not perfect either.
 
 ## Conclusion
 
