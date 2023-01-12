@@ -11,6 +11,10 @@ date: 2022-12-16
 
 ## Books I've read
 
+#### 2023
+
+* _Assassin's Apprentice_, (1995), Robin Hobb, 435 pp
+
 #### 2022
 
 * _Return of the King_, (1955), J. R. R. Tolkien, 595 pp
