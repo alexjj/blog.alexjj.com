@@ -23,7 +23,7 @@ Up to this point, whilst I had been taking film photos, I'd never developed anyt
 
 I set it all up in the bathroom in the spare room, it has no windows and I thought it would be a good location. All the trays were filled and I was ready to develop. It's quite strange (and very uncomfortable) sitting on the floor for 20 minutes whilst trying to develop these sheets. I also realised that, after adjusting the the darkness for 20 minutes, that the room wasn't as dark as I thought it was. Oh well.
 
-My some miracle of beginners luck I did manage to make a photo!
+By some miracle of beginners luck I did manage to make a photo!
 
 ![Kids black and white photo](first-4x5.jpg "That vintage look")
 
