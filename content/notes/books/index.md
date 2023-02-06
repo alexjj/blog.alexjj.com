@@ -13,6 +13,7 @@ date: 2022-12-16
 
 #### 2023
 
+* _Royal Assassin_, (1996), Robin Hobb, 675 pp
 * _Assassin's Apprentice_, (1995), Robin Hobb, 435 pp
 
 #### 2022
