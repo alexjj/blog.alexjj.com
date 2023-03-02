@@ -25,3 +25,4 @@ Contrary to this, I do like time  away from a computer. Reading fiction, writing
 ## Sundries
 
 * [Books I've read](/notes/books)
+* [Hydrocarbon Processing Publication](https://web.archive.org/web/20230302081724/https://engage.seeq.com/process-health-solution/home/article---hydrocarbon-processing-data-algorithms-and-collaboration)
