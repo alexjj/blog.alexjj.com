@@ -33,8 +33,4 @@ I suppose the next best thing to admiring books, is to actually read them. Maybe
 
 ![Daughter's bookshelf](bookcase-4.jpg "Daughter's bookshelf")
 
-What's on your bookcase?
-
-{{< lead >}}
-I can't get Hugo to not mess with the images 🤷‍♂️
-{{< /lead >}}
+What's on your bookcase? 📚
