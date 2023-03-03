@@ -13,13 +13,6 @@ If you're lucky you have space, and shelves and books to together, and then you 
 
 Or maybe these decisions have never been made, and just the natural flow of life has resulted in books on shelves with the same choosing that results in driftwood on a beach.
 
-{{< figure
-    src="bookcase-1.jpg"
-    alt="Kids books on the landing"
-    caption="Kids books on the landing"
-
->}}
-
 ![Kids books on the landing](bookcase-1.jpg "Kids books on the landing")
 
 Some books have obvious places to live. Kids books in or near kids rooms for bedtime stories, or for them to hide away from the world and enjoy the quiet company of a book.
