@@ -13,6 +13,7 @@ date: 2022-12-16
 
 #### 2023
 
+* _Ship of Magic_, (1998), Robin Hobb, 880 pp
 * _Assassin's Quest_, (1997), Robin Hobb, 757 pp
 * _Royal Assassin_, (1996), Robin Hobb, 675 pp
 * _Assassin's Apprentice_, (1995), Robin Hobb, 435 pp
