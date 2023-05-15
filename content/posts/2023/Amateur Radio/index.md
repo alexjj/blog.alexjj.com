@@ -47,7 +47,7 @@ The antenna is about 4m off the ground at the house end and almost 3 at the tree
 
 So how has it been? Pretty fun! I've spoken to people all over Europe, into Canada and the USA. I can often hear signals from all around the world - Falklands, Australia, Japan, Indonesia, South Africa, etc. - but they can't hear me.
 
-![Voice Contacts Made](qsos.png "Voice Contacts Made)
+![Voice Contacts Made](qsos.png "Voice Contacts Made")
 
 I've used the digital mode, FT8, which means I connect my computer to the radio and it communicates with other computers via radio. This doesn't need nearly as much signal compared to noise to make a contact compared to voice contacts. The best part is that you can look up online (on [PSK Reporter](https://pskreporter.info/)) who has heard your signal. So you don't need to make a contact with them to know how far your signal has gone. I've been heard across the world with this, and have made real contacts with Australia, Brazil and Japan.
 
@@ -60,3 +60,5 @@ I did manage to tear myself away from the radio to study for the intermediate li
 Now I'm debating the antenna situation. Pole or not, a vertical, something else. My wife isn't keen on the wire going across the garden but equally doesn't like the sound of a 10m pole! I have started to look into satellites too, at least a dish is more discrete. I'm also thinking of setting up a portable antenna for trips away.
 
 Plus I have the full licence still to get. 📚
+
+Look me up on [QRZ](https://www.qrz.com/db/2M0RVM).
