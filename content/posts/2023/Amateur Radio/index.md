@@ -39,7 +39,7 @@ The pole is 6 m tall but with the flex, the antenna was only about 3-3.5m off th
 
 I thought I could raise it up by tying the pole to the nearby tree - this tree is unfortunately still quite small else I'd have used it in the first place.
 
-![Oh Dear...](oops.JPG "Oh Dear...)
+![Oh Dear...](oops.JPG "Oh Dear...")
 
 A little too much force it seems...I took down the pole and ended up tying the antenna to the tree, whilst the tree is small it could still hold the weight of the line and I could get it moderately high. I ordered a space section, so the pole will be for a portable setup that I'll make one day.
 
