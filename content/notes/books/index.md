@@ -13,6 +13,8 @@ date: 2022-12-16
 
 #### 2023
 
+* _Ship of Destiny_, (2000), Robin Hobb, 789 pp
+* _The Mad Ship_, (1999), Robin Hobb, 906 pp
 * _Ship of Magic_, (1998), Robin Hobb, 880 pp
 * _The Price Of Money: How to prosper in a financial world that’s rigged against you_, (2023), Rob Dix, 182 pp
 * _Assassin's Quest_, (1997), Robin Hobb, 757 pp

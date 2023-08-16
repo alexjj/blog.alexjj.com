@@ -6,4 +6,4 @@ showDate: false
 Summary: "QRZ Logbook"
 ---
 
-<iframe align="top" frameborder="0" height="500" scrolling="yes" src="https://logbook.qrz.com/lbstat/MM7RVP/" width="640"></iframe>
+<iframe align="top" frameborder="0" height="500" scrolling="yes" src="https://logbook.qrz.com/lbstat/GM5ALX/" width="640"></iframe>
