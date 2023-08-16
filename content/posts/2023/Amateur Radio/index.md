@@ -61,4 +61,4 @@ Now I'm debating the antenna situation. Pole or not, a vertical, something else.
 
 Plus I have the full licence still to get. 📚
 
-Look me up on [QRZ](https://www.qrz.com/db/2M0RVM).
+Look me up on [QRZ](https://www.qrz.com/db/GM5ALX).
