@@ -59,6 +59,6 @@ I did manage to tear myself away from the radio to study for the intermediate li
 
 Now I'm debating the antenna situation. Pole or not, a vertical, something else. My wife isn't keen on the wire going across the garden but equally doesn't like the sound of a 10m pole! I have started to look into satellites too, at least a dish is more discrete. I'm also thinking of setting up a portable antenna for trips away.
 
-Plus I have the full licence still to get. 📚
+Plus I have the full licence still to get. 📚 (Update July 2023: I'm now a full holder!)
 
-Look me up on [QRZ](https://www.qrz.com/db/2M0RVM).
+Look me up on [QRZ](https://www.qrz.com/db/GM5ALX).
