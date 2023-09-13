@@ -20,7 +20,7 @@ I like lots of things, I tend to try and do a lot of  stuff but not often for a 
 
 Contrary to this, I do like time  away from a computer. Reading fiction, writing in notebooks, typing on a typewriter, and being outside. I do think I spend too much time on a  computer but it's a habit that's hard to break. It's likely this site  will end up reflecting what I like and what I spend my time doing.
 
-
+In 2023 I got my amateur radio licence and have been really into all aspects of it. You can see more on my dedicated [radio blog](https://gm5alx.uk).
 
 ## Sundries
 
