@@ -1,7 +1,7 @@
 ---
 title: "A new writing nook"
 date: 2023-09-13
-summary: "Making a nice place to write"
+summary: "Making a nice place to write, again."
 tags: ["Lifestyle", "Writing"]
 ---
 
