@@ -5,10 +5,6 @@ date: 2022-12-18
 tags: ["Fuji", "Photography", "Gear"]
 ---
 
-{{< lead >}}
-I already sold the 50...
-{{< /lead >}}
-
 This post sat as a draft for a long time when I was using blot. Whilst migrating my site to this new Hugo one I saw the pictures I took and thought I might as well write it up quickly.
 
 ![Two fuji lenses](fuji-50-60-thumb.jpg "Side by side")
@@ -36,6 +32,6 @@ Speaking of focusing...oh my, how the 60mm is slow compared to the 50mm. It's no
 
 ## Conclusion
 
-As I already said, I sold the 50mm and kept the 60mm. I need the macro (unless I change my mind on the camera scanning solution) and I don't often like shooting at longer lengths and I rarely/never do portrait sessions, so the 50mm doesn't make much sense. Plus if I did do portraits, I could use the 60mm and it would be fine.
+I sold the 50mm and kept the 60mm. I need the macro (unless I change my mind on the camera scanning solution) and I don't often like shooting at longer lengths and I rarely/never do portrait sessions, so the 50mm doesn't make much sense. Plus if I did do portraits, I could use the 60mm and it would be fine.
 
 I actually have the 60mm for sale, with the intent to replace it with a better macro. There are various 3rd party manual focus macros which are much better and would be ideal for film scanning. Although I'm also tempted to abandon film scanning with my camera and just buy a dedicated 35mm scanner like the Plusteks. I used to own one but sold it and now I regret that. Whilst they're slow to scan, everything is right there and easy to do. If the 60mm ever sells then I'll decide what I'll do.

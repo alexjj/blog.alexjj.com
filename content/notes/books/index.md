@@ -13,6 +13,11 @@ date: 2022-12-16
 
 #### 2023
 
+* _Dragon Haven_, (2010), Robin Hobb, 508 pp
+* _Dragon Keeper_, (2009), Robin Hobb, 553 pp
+* _Fool's Fate_, (2003), Robin Hobb, 914 pp
+* _The Golden Fool_, (2002), Robin Hobb, 709 pp
+* _Fool's Errand_, (2001), Robin Hobb, 661 pp
 * _Ship of Destiny_, (2000), Robin Hobb, 789 pp
 * _The Mad Ship_, (1999), Robin Hobb, 906 pp
 * _Ship of Magic_, (1998), Robin Hobb, 880 pp
