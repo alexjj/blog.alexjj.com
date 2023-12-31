@@ -13,6 +13,8 @@ date: 2022-12-16
 
 #### 2023
 
+* _Blood of Dragons_, (2013), Robin Hobb, 545 pp
+* _City of Dragons_, (2011), Robin Hobb, 416 pp
 * _Dragon Haven_, (2010), Robin Hobb, 508 pp
 * _Dragon Keeper_, (2009), Robin Hobb, 553 pp
 * _Fool's Fate_, (2003), Robin Hobb, 914 pp
