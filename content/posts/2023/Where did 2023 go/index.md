@@ -3,7 +3,6 @@ title: "Where did 2023 go?"
 date: 2023-12-31
 tags: ["Lifestyle"]
 summary: "And just what did I do?"
-draft: true
 ---
 
 Here we are, the evening of the last day of the year (at least when I started writing this, took me a few more days to finish!) and I wonder what did happen? I also wonder what will come next year? This time last year I did make a list in [dynalist](https://dynalist.io/) of what I wanted to do in 2023, and I thought I should probably look back on it before I (blindly) make 2024's list. I also decided to rank myself red, yellow, green on what I achieved. Doesn't seem like it's been that great, with five red, four yellow and only one green. I also have one blue.
