@@ -11,6 +11,10 @@ date: 2022-12-16
 
 ## Books I've read
 
+#### 2024
+
+* _Fool's Assassin_, (2014), Robin Hobb, 706 pp
+
 #### 2023
 
 * _Dragon Haven_, (2010), Robin Hobb, 508 pp
@@ -28,9 +32,8 @@ date: 2022-12-16
 
 #### 2022
 
-* _Return of the King_, (1955), J. R. R. Tolkien, 595 pp
 * _Ten Poems about Tea_, (2011), Various, Introduced by Sophie Dahl, 16 pp
-* _The Two Towers_, (1954), J. R. R. Tolkien, 448 pp
+* _The Two Towers_, (1954), J. R. R. Tolkien,  448 pp
 * _The Fellowship of the Ring_ (1954), J. R. R. Tolkien, 432 pp
   * Re-read from 20 years ago
 * _Death's End_ (2010), Liu Cixin, 604 pp
