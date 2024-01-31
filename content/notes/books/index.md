@@ -13,6 +13,7 @@ date: 2022-12-16
 
 #### 2024
 
+* _Fool's Quest_, (2015), Robin Hobb, 757 pp
 * _Fool's Assassin_, (2014), Robin Hobb, 706 pp
 
 #### 2023
