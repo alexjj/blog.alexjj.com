@@ -141,3 +141,5 @@ The [median earnings in Scotland](https://digitalpublications.parliament.scot/Re
 Without getting too political, there are the numbers. Make of it what you will. Here's England vs. the new Scottish bands.
 
 ![Delta between Scotland and England](vsengland.png "Delta between Scotland and England]")
+
+The graph doesn't win awards for comprehension, so the hint is, Scotland costs more. 🏴󠁧󠁢󠁳󠁣󠁴󠁿
