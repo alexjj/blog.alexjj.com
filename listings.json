@@ -1,5 +1,12 @@
 [
   {
+    "listing": "/notes.html",
+    "items": [
+      "/notes/books.html",
+      "/notes/film.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/2024/changes-to-scottish-tax-bands/index.html",
@@ -25,8 +32,8 @@
       "/posts/2022/Kosmos-film-review/index.html",
       "/posts/2022/happy-60th-m2/index.html",
       "/posts/2022/big-orange/index.html",
-      "/posts/2022/compact-cameras/index.html",
       "/posts/2022/hobonichi-first/index.html",
+      "/posts/2022/compact-cameras/index.html",
       "/posts/2022/a-little-writing-nook/index.html",
       "/posts/2022/a-new-keyboard/index.html",
       "/posts/2022/I-have-a-photo-in-an-actual-gallery/index.html",
@@ -35,13 +42,6 @@
       "/posts/2021/monte-carlo-simulation-in-excel-with-python/index.html",
       "/posts/2021/my-favourite-teapot/index.html",
       "/posts/2016/Managing-my-personal-finances-with-beancount/index.html"
-    ]
-  },
-  {
-    "listing": "/notes.html",
-    "items": [
-      "/notes/books.html",
-      "/notes/film.html"
     ]
   }
 ]
