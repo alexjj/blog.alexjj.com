@@ -1,63 +1,703 @@
-<!doctype html><html lang=en dir=ltr class=scroll-smooth data-default-appearance=light data-auto-appearance=true><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="rgb(255,255,255)"><title>Monte Carlo Simulation in Excel with Python &#183; alexjj.com</title>
-<meta name=title content="Monte Carlo Simulation in Excel with Python &#183; alexjj.com"><script type=text/javascript src=/js/appearance.min.022d0ebc3b46a335eb1c7ef79b7f2de143d7cd5156d433638592ef1ce5f8554e.js integrity="sha256-Ai0OvDtGozXrHH73m38t4UPXzVFW1DNjhZLvHOX4VU4="></script><link type=text/css rel=stylesheet href=/css/main.bundle.min.f2aede57fbfdd64d6139fe7a8ee99afaa9fc5ccfa40b4d7af0731034d3399732.css integrity="sha256-8q7eV/v91k1hOf56juma+qn8XM+kC0168HMQNNM5lzI="><script defer type=text/javascript id=script-bundle src=/js/main.bundle.min.584bbad802c9a2b9301e29557fa688dc72062b2386b655a7a19c02c3a1d36248.js integrity="sha256-WEu62ALJorkwHilVf6aI3HIGKyOGtlWnoZwCw6HTYkg=" data-copy=Copy data-copied=Copied></script><meta name=description content="
-      
-        Simulating the possible with python and excel
-      
-    "><link rel=canonical href=https://alexjj.com/posts/2021/monte-carlo-simulation-in-excel-with-python/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta property="og:title" content="Monte Carlo Simulation in Excel with Python"><meta property="og:description" content="Simulating the possible with python and excel"><meta property="og:type" content="article"><meta property="og:url" content="https://alexjj.com/posts/2021/monte-carlo-simulation-in-excel-with-python/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-11-25T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-25T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Monte Carlo Simulation in Excel with Python"><meta name=twitter:description content="Simulating the possible with python and excel"><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","articleSection":"Posts","name":"Monte Carlo Simulation in Excel with Python","headline":"Monte Carlo Simulation in Excel with Python","abstract":"Simulating the possible with python and excel","inLanguage":"en","url":"https:\/\/alexjj.com\/posts\/2021\/monte-carlo-simulation-in-excel-with-python\/","author":{"@type":"Person","name":"Alex Johnstone"},"copyrightYear":"2021","dateCreated":"2021-11-25T00:00:00\u002b00:00","datePublished":"2021-11-25T00:00:00\u002b00:00","dateModified":"2021-11-25T00:00:00\u002b00:00","keywords":["Python","Excel"],"mainEntityOfPage":"true","wordCount":"1209"}</script><meta name=author content="Alex Johnstone"><link href=mailto:alex@alexjj.com rel=me><link href=https://www.flickr.com/photos/alexjj/ rel=me><link href=https://github.com/alexjj rel=me><link href=https://linkedin.com/in/ajjohnstone rel=me><link href=https://fosstodon.org/@alexjj rel=me><link href=https://steamcommunity.com/id/captainlag/ rel=me></head><body class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"><div id=the-top class="absolute flex self-center"><a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600" href=#main-content><span class="font-bold pe-2 text-primary-600 dark:text-primary-400">&darr;</span>Skip to main content</a></div><header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10"><nav class="flex items-start justify-between sm:items-center"><div class="z-40 flex flex-row items-center"><a href=/ class=mr-2><img src=/img/cat-logo.png width=50 height=58 class="max-h-[10rem] max-w-[10rem] object-scale-down object-left" alt=alexjj.com>
-</a><a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" rel=me href=/>alexjj.com</a></div><label id=menu-button for=menu-controller class="block sm:hidden"><input type=checkbox id=menu-controller class=hidden><div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentcolor" d="M0 96C0 78.33 14.33 64 32 64H416c17.7.0 32 14.33 32 32 0 17.7-14.3 32-32 32H32C14.33 128 0 113.7.0 96zM0 256c0-17.7 14.33-32 32-32H416c17.7.0 32 14.3 32 32s-14.3 32-32 32H32c-17.67.0-32-14.3-32-32zM416 448H32c-17.67.0-32-14.3-32-32s14.33-32 32-32H416c17.7.0 32 14.3 32 32s-14.3 32-32 32z"/></svg></span></div><div id=menu-wrapper class="fixed inset-0 z-30 invisible w-full h-full m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50"><ul class="flex flex-col w-full px-6 py-6 mx-auto overflow-visible list-none max-w-7xl text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32"><li class=mb-1><span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentcolor" d="M310.6 361.4c12.5 12.5 12.5 32.75.0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3 54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75.0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75.0-45.25s32.75-12.5 45.25.0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25.0s12.5 32.75.0 45.25l-105.4 105.4L310.6 361.4z"/></svg></span></span></li><li class="mb-1 group"><a href=/posts/ title=Posts><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Blog</span></a></li><li class="mb-1 group"><a href=/notes/ title=Notes><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Notes</span></a></li><li class="mb-1 group"><a href=/about/ title="About me"><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">About</span></a></li><li class="mb-1 group"><a href=https://wiki.alexjj.com title><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Wiki🌐</span></a></li><li class="mb-1 group"><a href=https://gm5alx.uk title><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">GM5ALX📻</span></a></li><li class="mb-1 group"><button id=search-button-m0 title="Search (/)">
-<span class="transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600"><span class="relative inline-block align-text-bottom px-1 icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span></span></button></li></ul></div></label><ul class="flex-row hidden list-none text-end sm:flex"><li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0"><a href=/posts/ title=Posts><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Blog</span></a></li><li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0"><a href=/notes/ title=Notes><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Notes</span></a></li><li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0"><a href=/about/ title="About me"><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">About</span></a></li><li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0"><a href=https://wiki.alexjj.com title><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Wiki🌐</span></a></li><li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0"><a href=https://gm5alx.uk title><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">GM5ALX📻</span></a></li><li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0"><button id=search-button-m1 title="Search (/)">
-<span class="transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600"><span class="relative inline-block align-text-bottom px-1 icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span></span></button></li></ul></nav></header><div class="relative flex flex-col grow"><main id=main-content class=grow><article><header class=max-w-prose><ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden"><li class="inline hidden"><a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href=/>Welcome to my site</a><span class="px-1 text-primary-500">/</span></li><li class=inline><a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href=/posts/>Posts</a><span class="px-1 text-primary-500">/</span></li><li class="inline hidden"><a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href=/posts/2021/monte-carlo-simulation-in-excel-with-python/>Monte Carlo Simulation in Excel with Python</a><span class="px-1 text-primary-500">/</span></li></ol><h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Monte Carlo Simulation in Excel with Python</h1><div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden"><div class="flex flex-row flex-wrap items-center"><time datetime="2021-11-25 00:00:00 +0000 UTC">25 November 2021</time><span class="px-2 text-primary-500">&#183;</span><span>1209 words</span><span class="px-2 text-primary-500">&#183;</span><span title="Reading time">6 mins</span><span class="px-2 text-primary-500">&#183;</span>
-<span class=mb-[2px]><a href=https://github.com/alexjj/alexjj.com/tree/main/content/posts/2021/monte-carlo-simulation-in-excel-with-python/index.md class="text-lg hover:text-primary-500" rel="noopener noreferrer" target=_blank title="Edit content"><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M490.3 40.4c21.9 21.87 21.9 57.33.0 79.2l-30 30.1-98-97.98 30.1-30.06C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7 339.7 74.34l98 97.96L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2l-88.8 29.6C150.1 385.6 141.5 383.4 135 376.1 128.6 370.5 126.4 361 129.2 352.4l29.6-88.8C161.6 255.3 166.2 247.8 172.4 241.7v0zM192 63.1c17.7.0 32 15.23 32 32 0 18.6-14.3 32-32 32H96c-17.67.0-32 15.2-32 32V416c0 17.7 14.33 32 32 32H352c17.7.0 32-14.3 32-32V319.1c0-16.8 14.3-32 32-32s32 15.2 32 32V416c0 53-43 96-96 96H96c-53.02.0-96-43-96-96V159.1c0-53 42.98-96 96-96h96z"/></svg></span></a></span></div></div></header><section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row"><div class="min-w-0 min-h-0 max-w-prose grow"><p>There are quite a few blogs that show you how to do Monte Carlo simulations using python. A very accessible one is from <a href=https://pbpython.com/monte-carlo.html target=_blank rel=noreferrer>Practical Business Python</a>. Always a great site for python in the workplace for non-devs. However, I couldn&rsquo;t find one that did just what I wanted, namely, take a model I&rsquo;d already built in Excel and then apply some randomness and plot the S-curve (cumulative distribution function).</p><p>Maybe if I&rsquo;d searched more I&rsquo;d find one but instead I just got on with it. I also used to have some software at work that did this for me, it was an add-on to Excel but work stopped paying for it and I found it hard to justify it (it&rsquo;s an Oracle product so no doubt pricey). Plus I always love an excuse to try and learn a bit more python.</p><h2 id=background class="relative group">Background <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#background aria-label=Anchor>#</a></span></h2><p>If you don&rsquo;t know, Monte Carlo simulation is a way to capture uncertainity. If a friend is driving to your house, 50 miles away, and they travel at 50 mph it&rsquo;ll take then one hour right? Well, not always. Maybe they are keen on the gas and drive faster, or maybe there&rsquo;s an accident and they get stuck. You just never know. So you could use monte carlo to say that their average journey speed could be from 40-60 mph, then you randomly sample many many times from that range and work out the time it takes. Do it 10,000 times and you then have 10,000 results that you can draw estimates from, e.g. the average time. You can also plot the results and show the whole range.</p><h2 id=tools class="relative group">Tools <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#tools aria-label=Anchor>#</a></span></h2><p>The main python tools to get this working is <a href=https://numpy.org/ target=_blank rel=noreferrer>numpy</a> for the random sampling and <a href=https://www.xlwings.org/ target=_blank rel=noreferrer>xlwings</a> for interacting with Excel. Like all python libraries, these tools do <strong>way</strong> more than just what I need. I also used pandas, seaborn and matplotlib. Probably unnecessary but they&rsquo;re quick to work with as I already know the gist of them.</p><p>Then of course there&rsquo;s Excel, which needs no introduction. I&rsquo;d already built my deterministic model in Excel, where all my inputs were in one table that could be changed and then the outputs were in another to be read.</p><p>There&rsquo;s always going to be the choice of what do you do in python and what do you do in Excel. As I&rsquo;d started in Excel I didn&rsquo;t want to waste time recreating stuff in python so all the calculations are in Excel. This is slow (but still fast enough for my use case). Depending on how advanced or complex your model becomes it may be better to move more of it to Excel. The trade off with this is now only you can use it or understand it.</p><p>Before I forget, there&rsquo;s also VS Code. I use it at work as it&rsquo;s free, I can install it without Admin rights and IT department haven&rsquo;t questioned me on it (yet!), unlike PyCharm 🤔. I like to make use of the #%% cell divider in it. Partially as I&rsquo;d been using this for a long time with Spyder (before VS Code existed) and also as it seems like a better way to work vs. notebooks. At least for me.</p><p>As always the documentation of the libraries is a great place to start - often the best place before you jump to tutorials.</p><h2 id=the-randomness class="relative group">The Randomness <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#the-randomness aria-label=Anchor>#</a></span></h2><p>Your uncertainity takes shape in many different ways. Sometimes is a continuous range, like our speed example before, or it&rsquo;s discrete, like picking your starter Pokémon. In fact whatever the uncertainity is, numpy has a <a href=https://numpy.org/doc/stable/reference/random/index.html target=_blank rel=noreferrer>method</a> to help you represent it. I actually think working out what your uncertainity looks like is the hardest part of all of it. Perhaps you could even have uncertainity on the uncertainity&mldr;Generally you want to ask an expert, maybe yourself, maybe someone else in your company, or whatever you can find online that seems reasonable. You can, of course, just try different ones in your model and see if it actually makes a difference to the decision you&rsquo;re trying to make.</p><p>I ened up using <code>choice</code> and <code>uniform</code> distributions. Choice being my starter Pokémon, and uniform distribution being a range of numbers but they&rsquo;re all equally likely to be picked.</p><p>My choice was actually choosing a range of numbers in Excel which would all change depending on what choice was picked.</p><h2 id=the-code class="relative group">The Code <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#the-code aria-label=Anchor>#</a></span></h2><p>So in all its glory:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>seaborn</span> <span class=k>as</span> <span class=nn>sns</span>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>xlwings</span> <span class=k>as</span> <span class=nn>xw</span>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>set_style</span><span class=p>(</span><span class=s1>&#39;whitegrid&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Setup</span>
-</span></span><span class=line><span class=cl><span class=n>excel</span> <span class=o>=</span> <span class=sa>r</span><span class=s2>&#34;myexcel.xlsx&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>wb</span> <span class=o>=</span> <span class=n>xw</span><span class=o>.</span><span class=n>Book</span><span class=p>(</span><span class=n>excel</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>sheet</span> <span class=o>=</span> <span class=n>wb</span><span class=o>.</span><span class=n>sheets</span><span class=p>[</span><span class=s1>&#39;Control Sheet&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>rng</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>default_rng</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>iterations</span> <span class=o>=</span> <span class=mi>1000</span>
-</span></span><span class=line><span class=cl><span class=n>POWER_LOWER</span> <span class=o>=</span> <span class=mi>100</span>
-</span></span><span class=line><span class=cl><span class=n>POWER_UPPER</span> <span class=o>=</span> <span class=mi>120</span>
-</span></span><span class=line><span class=cl><span class=n>CAPITAL_LOWER</span> <span class=o>=</span> <span class=mi>10000</span>
-</span></span><span class=line><span class=cl><span class=n>CAPITAL_HIGHER</span> <span class=o>=</span> <span class=mi>30000</span>
-</span></span><span class=line><span class=cl><span class=n>CO2_OPTIONS</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>npv</span> <span class=o>=</span> <span class=p>[]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>iterations</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=n>power_price</span> <span class=o>=</span> <span class=n>rng</span><span class=o>.</span><span class=n>uniform</span><span class=p>(</span><span class=n>low</span><span class=o>=</span><span class=n>POWER_LOWER</span><span class=p>,</span> <span class=n>high</span><span class=o>=</span><span class=n>POWER_UPPER</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=n>capital_cost</span> <span class=o>=</span> <span class=n>rng</span><span class=o>.</span><span class=n>uniform</span><span class=p>(</span><span class=n>low</span><span class=o>=</span><span class=n>CAPITAL_LOWER</span><span class=p>,</span> <span class=n>high</span><span class=o>=</span><span class=n>CAPITAL_HIGHER</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=n>co2_price</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>choice</span><span class=p>(</span><span class=n>CO2_OPTIONS</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>sheet</span><span class=o>.</span><span class=n>range</span><span class=p>(</span><span class=s1>&#39;B3&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>value</span> <span class=o>=</span> <span class=n>power_price</span> <span class=o>/</span> <span class=mi>80</span>
-</span></span><span class=line><span class=cl>    <span class=n>sheet</span><span class=o>.</span><span class=n>range</span><span class=p>(</span><span class=s1>&#39;B4&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>value</span> <span class=o>=</span> <span class=n>capital_cost</span>
-</span></span><span class=line><span class=cl>    <span class=n>sheet</span><span class=o>.</span><span class=n>range</span><span class=p>(</span><span class=s1>&#39;B9&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>value</span> <span class=o>=</span> <span class=n>co2_price</span>
-</span></span><span class=line><span class=cl>    <span class=n>npv_new</span> <span class=o>=</span> <span class=n>sheet</span><span class=o>.</span><span class=n>range</span><span class=p>(</span><span class=s1>&#39;B7&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>value</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>npv</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>npv_new</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>results</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>(</span><span class=n>data</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;NPV10 £MM&#39;</span><span class=p>:</span> <span class=n>npv</span><span class=p>})</span>
-</span></span><span class=line><span class=cl><span class=n>P90</span> <span class=o>=</span> <span class=n>results</span><span class=o>.</span><span class=n>quantile</span><span class=p>(</span><span class=mf>0.9</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=n>P50</span> <span class=o>=</span> <span class=n>results</span><span class=o>.</span><span class=n>quantile</span><span class=p>(</span><span class=mf>0.5</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=n>P10</span> <span class=o>=</span> <span class=n>results</span><span class=o>.</span><span class=n>quantile</span><span class=p>(</span><span class=mf>0.1</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=n>EV</span> <span class=o>=</span> <span class=n>results</span><span class=o>.</span><span class=n>mean</span><span class=p>()[</span><span class=mi>0</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>displot</span><span class=p>(</span><span class=n>results</span><span class=p>,</span> <span class=n>kind</span><span class=o>=</span><span class=s2>&#34;ecdf&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;EV: £</span><span class=si>{</span><span class=n>EV</span><span class=si>:</span><span class=s2>.1f</span><span class=si>}</span><span class=s2>MM, P10: £</span><span class=si>{</span><span class=n>P10</span><span class=si>:</span><span class=s2>.1f</span><span class=si>}</span><span class=s2>MM, P50: £</span><span class=si>{</span><span class=n>P50</span><span class=si>:</span><span class=s2>.1f</span><span class=si>}</span><span class=s2>MM, P90: £</span><span class=si>{</span><span class=n>P90</span><span class=si>:</span><span class=s2>.1f</span><span class=si>}</span><span class=s2>MM&#34;</span><span class=p>)</span>
-</span></span></code></pre></div><p>I made a few controls at the top so I could adjust the ranges of things. Fairly basic stuff otherwise, which I&rsquo;m sure can be done better but was good enough for me. Being so simple makes it pretty easy to understand, even if you&rsquo;ve never used these libraries before.</p><p>The whole thing is a loop that does the random sampling, insert those values into excel, excel then recalculates, then it takes the answer out and appends it to a list. Repeat that <code>iterations</code> times and there&rsquo;s my data.</p><p>I create a pandas dataframe (probably lazy and it could be done in numpy but as I said, lazy.) from the list and then calculate some metrics from it. The P values are commonly used at work to express the range. Where P90 meaning 90% probability that the value is ≤ X. Or often viewed as most optimistic result, with P10 therefore being the most pessimistic result. Actually, I&rsquo;ve seen companies define these in reverse so check before you confuse people.</p><p>Seaborn has a handy empirical cumulative distribution function (ecdf), that saves me thinking anything whatsoever (that&rsquo;s the whole objective whilst at work right?). So I make one of those for the PowerPoint, and print out the final numbers in a nice line.</p><p>The other nice thing with VS Code is the data viewer. I can save the plot to a file and copy and paste the table of results straight from it without having to write it to a file first. Tiny things like that make life so much easier.</p><h2 id=conclusion class="relative group">Conclusion <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#conclusion aria-label=Anchor>#</a></span></h2><p>So pretty straight forward to make your deterministic Excel model into a fully probabilistic model capturing all the uncertainity and demonstrating all the potential outcomes that can happen. For free, in about 30 minutes of work.</p><p>I think probabilistic models should be used more often. Very rarely is it that everything is always known exactly and whilst your calculation isn&rsquo;t wrong, it&rsquo;s only one possible outcome. Better to give your decision maker (or yourself) a range of outcomes than just one. Tell them &ldquo;they&rsquo;re buying the curve&rdquo;. Then hope the final result actually lands on the curve 😅</p></div></section><footer class="pt-8 max-w-prose print:hidden"><div class=pt-8><hr class="border-dotted border-neutral-300 dark:border-neutral-600"><div class="flex justify-between pt-3"><span><a class="group flex" href=/posts/2021/my-favourite-teapot/><span class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"><span class="ltr:inline rtl:hidden">&larr;</span><span class="ltr:hidden rtl:inline">&rarr;</span></span>
-<span class="flex flex-col"><span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500">My favourite teapot 🫖</span>
-<span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400"><time datetime="2021-09-27 00:00:00 +0000 UTC">27 September 2021</time>
-</span></span></a></span><span><a class="group flex text-right" href=/posts/2021/generating-lots-of-tiddlers/><span class="flex flex-col"><span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500">Generating lots of tiddlers</span>
-<span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400"><time datetime="2021-12-15 00:00:00 +0000 UTC">15 December 2021</time>
-</span></span><span class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"><span class="ltr:inline rtl:hidden">&rarr;</span><span class="ltr:hidden rtl:inline">&larr;</span></span></a></span></div></div></footer></article><div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"><a href=#the-top class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400" aria-label="Scroll to top" title="Scroll to top">&uarr;</a></div></main><footer class="py-10 print:hidden"><nav class="pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400"><ul class="flex flex-col list-none sm:flex-row"><li class="mb-1 group text-end sm:mb-0 sm:me-7 sm:last:me-0"><a href=/tags/ title=Tags><span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">Tags</span></a></li></ul></nav><div class="flex items-center justify-between"><div><p class="text-sm text-neutral-500 dark:text-neutral-400"><a href=https://creativecommons.org/licenses/by-sa/4.0/deed.en target=_blank rel=noreferrer>CC Attribution-Share Alike 4.0 International</a></p></div><div class="flex flex-row items-center"></div></div><a rel=me href=https://fosstodon.org/@alexjj></a><script src=https://tinylytics.app/embed/Rj3MAqroWG_cK55bsfge.js defer></script></footer><div id=search-wrapper class="invisible fixed inset-0 z-50 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]" data-url=https://alexjj.com/><div id=search-modal class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"><header class="relative z-10 flex items-center justify-between flex-none px-2"><form class="flex items-center flex-auto min-w-0"><div class="flex items-center justify-center w-8 h-8 text-neutral-400"><span class="relative inline-block align-text-bottom px-1 icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span></div><input type=search id=search-query class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent" placeholder=Search tabindex=0></form><button id=close-search-button class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400" title="Close (Esc)">
-<span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentcolor" d="M310.6 361.4c12.5 12.5 12.5 32.75.0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3 54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75.0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75.0-45.25s32.75-12.5 45.25.0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25.0s12.5 32.75.0 45.25l-105.4 105.4L310.6 361.4z"/></svg></span></button></header><section class="flex-auto px-2 overflow-auto"><ul id=search-results></ul></section></div></div></div></body></html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Johnstone">
+<meta name="dcterms.date" content="2021-11-25">
+
+<title>Alex Johnstone - Monte Carlo Simulation in Excel with Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "?",
+    "H"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Alex Johnstone - Monte Carlo Simulation in Excel with Python">
+<meta property="og:description" content="Simulating the possible with python and excel">
+<meta property="og:image" content="https://alexjj.com/posts/2021/monte-carlo-simulation-in-excel-with-python/dice-thumb.png">
+<meta property="og:site_name" content="Alex Johnstone">
+<meta property="og:image:height" content="4192">
+<meta property="og:image:width" content="3962">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../img/cat-logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Alex Johnstone</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../notes.html"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss-fill" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://wiki.alexjj.com"> <i class="bi bi-globe" role="img">
+</i> 
+<span class="menu-text">Wiki</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gm5alx.uk"> <i class="bi bi-broadcast-pin" role="img">
+</i> 
+<span class="menu-text">GM5ALX</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
+  <li><a href="#the-randomness" id="toc-the-randomness" class="nav-link" data-scroll-target="#the-randomness">The Randomness</a></li>
+  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The Code</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/alexjj/alexjj.com/blob/main/posts/2021/monte-carlo-simulation-in-excel-with-python/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/alexjj/alexjj.com/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Monte Carlo Simulation in Excel with Python</h1>
+<p class="subtitle lead">Simulating the possible with python and excel</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Excel</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Johnstone </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 25, 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>There are quite a few blogs that show you how to do Monte Carlo simulations using python. A very accessible one is from <a href="https://pbpython.com/monte-carlo.html">Practical Business Python</a>. Always a great site for python in the workplace for non-devs. However, I couldn’t find one that did just what I wanted, namely, take a model I’d already built in Excel and then apply some randomness and plot the S-curve (cumulative distribution function).</p>
+<p>Maybe if I’d searched more I’d find one but instead I just got on with it. I also used to have some software at work that did this for me, it was an add-on to Excel but work stopped paying for it and I found it hard to justify it (it’s an Oracle product so no doubt pricey). Plus I always love an excuse to try and learn a bit more python.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>If you don’t know, Monte Carlo simulation is a way to capture uncertainity. If a friend is driving to your house, 50 miles away, and they travel at 50 mph it’ll take then one hour right? Well, not always. Maybe they are keen on the gas and drive faster, or maybe there’s an accident and they get stuck. You just never know. So you could use monte carlo to say that their average journey speed could be from 40-60 mph, then you randomly sample many many times from that range and work out the time it takes. Do it 10,000 times and you then have 10,000 results that you can draw estimates from, e.g.&nbsp;the average time. You can also plot the results and show the whole range.</p>
+</section>
+<section id="tools" class="level2">
+<h2 class="anchored" data-anchor-id="tools">Tools</h2>
+<p>The main python tools to get this working is <a href="https://numpy.org/">numpy</a> for the random sampling and <a href="https://www.xlwings.org/">xlwings</a> for interacting with Excel. Like all python libraries, these tools do <strong>way</strong> more than just what I need. I also used pandas, seaborn and matplotlib. Probably unnecessary but they’re quick to work with as I already know the gist of them.</p>
+<p>Then of course there’s Excel, which needs no introduction. I’d already built my deterministic model in Excel, where all my inputs were in one table that could be changed and then the outputs were in another to be read.</p>
+<p>There’s always going to be the choice of what do you do in python and what do you do in Excel. As I’d started in Excel I didn’t want to waste time recreating stuff in python so all the calculations are in Excel. This is slow (but still fast enough for my use case). Depending on how advanced or complex your model becomes it may be better to move more of it to Excel. The trade off with this is now only you can use it or understand it.</p>
+<p>Before I forget, there’s also VS Code. I use it at work as it’s free, I can install it without Admin rights and IT department haven’t questioned me on it (yet!), unlike PyCharm 🤔. I like to make use of the #%% cell divider in it. Partially as I’d been using this for a long time with Spyder (before VS Code existed) and also as it seems like a better way to work vs.&nbsp;notebooks. At least for me.</p>
+<p>As always the documentation of the libraries is a great place to start - often the best place before you jump to tutorials.</p>
+</section>
+<section id="the-randomness" class="level2">
+<h2 class="anchored" data-anchor-id="the-randomness">The Randomness</h2>
+<p>Your uncertainity takes shape in many different ways. Sometimes is a continuous range, like our speed example before, or it’s discrete, like picking your starter Pokémon. In fact whatever the uncertainity is, numpy has a <a href="https://numpy.org/doc/stable/reference/random/index.html">method</a> to help you represent it. I actually think working out what your uncertainity looks like is the hardest part of all of it. Perhaps you could even have uncertainity on the uncertainity…Generally you want to ask an expert, maybe yourself, maybe someone else in your company, or whatever you can find online that seems reasonable. You can, of course, just try different ones in your model and see if it actually makes a difference to the decision you’re trying to make.</p>
+<p>I ened up using <code>choice</code> and <code>uniform</code> distributions. Choice being my starter Pokémon, and uniform distribution being a range of numbers but they’re all equally likely to be picked.</p>
+<p>My choice was actually choosing a range of numbers in Excel which would all change depending on what choice was picked.</p>
+</section>
+<section id="the-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-code">The Code</h2>
+<p>So in all its glory:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xlwings <span class="im">as</span> xw</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>excel <span class="op">=</span> <span class="vs">r"myexcel.xlsx"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>wb <span class="op">=</span> xw.Book(excel)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sheet <span class="op">=</span> wb.sheets[<span class="st">'Control Sheet'</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>iterations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>POWER_LOWER <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>POWER_UPPER <span class="op">=</span> <span class="dv">120</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>CAPITAL_LOWER <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>CAPITAL_HIGHER <span class="op">=</span> <span class="dv">30000</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>CO2_OPTIONS <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>npv <span class="op">=</span> []</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    power_price <span class="op">=</span> rng.uniform(low<span class="op">=</span>POWER_LOWER, high<span class="op">=</span>POWER_UPPER)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    capital_cost <span class="op">=</span> rng.uniform(low<span class="op">=</span>CAPITAL_LOWER, high<span class="op">=</span>CAPITAL_HIGHER)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    co2_price <span class="op">=</span> np.random.choice(CO2_OPTIONS)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    sheet.<span class="bu">range</span>(<span class="st">'B3'</span>).value <span class="op">=</span> power_price <span class="op">/</span> <span class="dv">80</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    sheet.<span class="bu">range</span>(<span class="st">'B4'</span>).value <span class="op">=</span> capital_cost</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    sheet.<span class="bu">range</span>(<span class="st">'B9'</span>).value <span class="op">=</span> co2_price</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    npv_new <span class="op">=</span> sheet.<span class="bu">range</span>(<span class="st">'B7'</span>).value</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    npv.append(npv_new)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">'NPV10 £MM'</span>: npv})</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>P90 <span class="op">=</span> results.quantile(<span class="fl">0.9</span>)[<span class="dv">0</span>]</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>P50 <span class="op">=</span> results.quantile(<span class="fl">0.5</span>)[<span class="dv">0</span>]</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>P10 <span class="op">=</span> results.quantile(<span class="fl">0.1</span>)[<span class="dv">0</span>]</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>EV <span class="op">=</span> results.mean()[<span class="dv">0</span>]</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>sns.displot(results, kind<span class="op">=</span><span class="st">"ecdf"</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"EV: £</span><span class="sc">{</span>EV<span class="sc">:.1f}</span><span class="ss">MM, P10: £</span><span class="sc">{</span>P10<span class="sc">:.1f}</span><span class="ss">MM, P50: £</span><span class="sc">{</span>P50<span class="sc">:.1f}</span><span class="ss">MM, P90: £</span><span class="sc">{</span>P90<span class="sc">:.1f}</span><span class="ss">MM"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I made a few controls at the top so I could adjust the ranges of things. Fairly basic stuff otherwise, which I’m sure can be done better but was good enough for me. Being so simple makes it pretty easy to understand, even if you’ve never used these libraries before.</p>
+<p>The whole thing is a loop that does the random sampling, insert those values into excel, excel then recalculates, then it takes the answer out and appends it to a list. Repeat that <code>iterations</code> times and there’s my data.</p>
+<p>I create a pandas dataframe (probably lazy and it could be done in numpy but as I said, lazy.) from the list and then calculate some metrics from it. The P values are commonly used at work to express the range. Where P90 meaning 90% probability that the value is ≤ X. Or often viewed as most optimistic result, with P10 therefore being the most pessimistic result. Actually, I’ve seen companies define these in reverse so check before you confuse people.</p>
+<p>Seaborn has a handy empirical cumulative distribution function (ecdf), that saves me thinking anything whatsoever (that’s the whole objective whilst at work right?). So I make one of those for the PowerPoint, and print out the final numbers in a nice line.</p>
+<p>The other nice thing with VS Code is the data viewer. I can save the plot to a file and copy and paste the table of results straight from it without having to write it to a file first. Tiny things like that make life so much easier.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>So pretty straight forward to make your deterministic Excel model into a fully probabilistic model capturing all the uncertainity and demonstrating all the potential outcomes that can happen. For free, in about 30 minutes of work.</p>
+<p>I think probabilistic models should be used more often. Very rarely is it that everything is always known exactly and whilst your calculation isn’t wrong, it’s only one possible outcome. Better to give your decision maker (or yourself) a range of outcomes than just one. Tell them “they’re buying the curve”. Then hope the final result actually lands on the curve 😅</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/alexjj/alexjj.com/blob/main/posts/2021/monte-carlo-simulation-in-excel-with-python/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/alexjj/alexjj.com/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

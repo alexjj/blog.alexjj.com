@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Johnstone">
+<meta name="dcterms.date" content="2016-02-27">
+
+<title>Alex Johnstone - Managing my personal finances with beancount</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "?",
+    "H"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Alex Johnstone - Managing my personal finances with beancount">
+<meta property="og:description" content="Explaining my setup with beancount, fava, and pythonanywhere">
+<meta property="og:image" content="https://alexjj.com/posts/2016/Managing-my-personal-finances-with-beancount/fava-screenshot-02.png">
+<meta property="og:site_name" content="Alex Johnstone">
+<meta property="og:image:height" content="999">
+<meta property="og:image:width" content="1371">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../img/cat-logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Alex Johnstone</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../notes.html"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss-fill" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://wiki.alexjj.com"> <i class="bi bi-globe" role="img">
+</i> 
+<span class="menu-text">Wiki</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gm5alx.uk"> <i class="bi bi-broadcast-pin" role="img">
+</i> 
+<span class="menu-text">GM5ALX</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-i-wanted" id="toc-what-i-wanted" class="nav-link" data-scroll-target="#what-i-wanted">What I wanted</a></li>
+  <li><a href="#the-background" id="toc-the-background" class="nav-link" data-scroll-target="#the-background">The Background</a>
+  <ul class="collapse">
+  <li><a href="#beancount" id="toc-beancount" class="nav-link" data-scroll-target="#beancount">Beancount</a></li>
+  </ul></li>
+  <li><a href="#the-system" id="toc-the-system" class="nav-link" data-scroll-target="#the-system">The System</a></li>
+  <li><a href="#entering-data" id="toc-entering-data" class="nav-link" data-scroll-target="#entering-data">Entering Data</a>
+  <ul class="collapse">
+  <li><a href="#at-home" id="toc-at-home" class="nav-link" data-scroll-target="#at-home">At home</a></li>
+  <li><a href="#and-away" id="toc-and-away" class="nav-link" data-scroll-target="#and-away">And Away</a></li>
+  </ul></li>
+  <li><a href="#beancount-setup" id="toc-beancount-setup" class="nav-link" data-scroll-target="#beancount-setup">Beancount Setup</a>
+  <ul class="collapse">
+  <li><a href="#your-file.beancount" id="toc-your-file.beancount" class="nav-link" data-scroll-target="#your-file.beancount">Your file.beancount</a></li>
+  </ul></li>
+  <li><a href="#analysing-data-in-your-browser" id="toc-analysing-data-in-your-browser" class="nav-link" data-scroll-target="#analysing-data-in-your-browser">Analysing data in your browser</a>
+  <ul class="collapse">
+  <li><a href="#beancount-data-analysis-extras" id="toc-beancount-data-analysis-extras" class="nav-link" data-scroll-target="#beancount-data-analysis-extras">Beancount data analysis extras</a></li>
+  </ul></li>
+  <li><a href="#free-fava-hosting" id="toc-free-fava-hosting" class="nav-link" data-scroll-target="#free-fava-hosting">Free fava hosting</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  </ul></li>
+  <li><a href="#finishing-touches" id="toc-finishing-touches" class="nav-link" data-scroll-target="#finishing-touches">Finishing touches</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/alexjj/alexjj.com/blob/main/posts/2016/Managing-my-personal-finances-with-beancount/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/alexjj/alexjj.com/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Managing my personal finances with beancount</h1>
+<p class="subtitle lead">Explaining my setup with beancount, fava, and pythonanywhere</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Finance</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Johnstone </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 27, 2016</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This guide is considerably old. However, the concept will still work but likely the configuration is now different.</p>
+</div>
+</div>
+<p><em>My version of getting started with beancount.</em></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The aim of this post is to walk you through my setup of how I manage my personal finances. I’ve read similar posts like these and found them useful to get ideas about what to do myself. Hopefully in turn, by presenting my setup it’ll give you some ideas too.</p>
+<p>At the core of system is <a href="http://furius.ca/beancount/">beancount</a>. I’ll explain it a little more shortly, but essentially it is a tool that reads a plain text file of my financial activity and undertakes double-entry accounting in order to easily assess my finances in any way imaginable. My whole system actually involves several other tools and services in order to make it work how I want.</p>
+<p>Using a tool like beancount means I am free to set everything up the way I want that works for me, and not the way someone thinks I want it. It also means my data is free from constraints.</p>
+</section>
+<section id="what-i-wanted" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-wanted">What I wanted</h2>
+<ul>
+<li>Data stored in plain text</li>
+<li>Add information quickly, and from anywhere</li>
+<li>A tool that could do everything - transactions, multiple currencies, stocks, investing, taxes, etc.</li>
+<li>A tool that could answer any question I had about my finances</li>
+<li>Fancy graphs on a website I could safely access anywhere</li>
+</ul>
+<p>This is what I have.</p>
+<p><img src="spacemacs.png" title="Plain text in emacs with Spacemacs" class="img-fluid" alt="Plain Text"> <img src="fava-screenshot-02.png" title="Fava web ui" class="img-fluid" alt="Fava web ui"></p>
+</section>
+<section id="the-background" class="level2">
+<h2 class="anchored" data-anchor-id="the-background">The Background</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="tl;dr">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+tl;dr
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ledger-cli like financial tools are the best.</p>
+</div>
+</div>
+<p>Finding your system takes time and there can be many decisions to make. It took me a long time to realise the benefit of tracking my expenses and what my money was doing. When I did first start I used <a href="https://www.youneedabudget.com/">YNAB</a>, You Need A Budget. I didn’t really need a budget. I wasn’t living pay cheque to pay cheque and had some savings, but I had no idea how much I should or could save a year or how much was I actually spending. What really was the cost of that holiday? My friend had started using YNAB, and I picked it up in a Steam sale for $15. It’s pretty decent, easy to use, import transactions, tracking, graphs. I liked it. The first problem I found was that it wasn’t setup for more than one currency. If you wanted more you had to make two separate budgets, and this meant that my expense categories ended up being a bit weird and after about 9 months of use I found I hadn’t set them up well. This ultimately meant I could get the information I wanted out of the tool. I could go back and adjust all the expenses into different accounts but I didn’t want to spend that time, and even then I’d still have to export everything into a spreadsheet to do further calculations. I’d also read some rumours that the next version was going to be a web only tool.</p>
+<p>Now YNAB keeps it’s data in some particular way and whilst there’s an export all function from the tool, I was worried about longevity of it. This was reinforced when they released the new version that is web only and announced they’d stop support for the desktop application after one year. Probably it’ll work for many years forward, but one day something will be changed and it’ll cease to work. Also the new version was going to have a monthly subscription…</p>
+<p>So I started my search for <a href="https://wiki.archlinux.org/index.php/List_of_applications/Other#Finance">alternatives</a>. Another feature I wanted was for it to be open source and natively run on linux, YNAB did via wine, but certainly wasn’t open source and that always bugged me. I try to encourage others to support and use open source and here I was doing the opposite. I had kept a duplicate ledger using GNUCash when I started with YNAB to see if I liked either of them, and I installed KMyMoney and even tried LibreOffice database program but they all had annoyances with multiple currencies and other things. Having something that could manage multiple currencies turned out to be my main decision criteria, and that’s when I finally sat down and read the <a href="http://ledger-cli.org/">ledger</a> manual.</p>
+<p>For about 3 months I started using YNAB and ledger side by side and I came to realise that ledger was the perfect tool for me. It effortlessly handles multiple currencies, I can query my data any which way I like and all my data is stored as plain text I can version control and easily read for the rest of my life. Actually, I started with beancount first for a week or two but then switched to ledger. After four months I ended up going back to beancount.</p>
+<section id="beancount" class="level3">
+<h3 class="anchored" data-anchor-id="beancount">Beancount</h3>
+<p>If you’ve got here and don’t know what double-entry accounting or beancount or ledger are, I’m going to link you to this <a href="http://plaintextaccounting.org/">great site</a> which explains it all.</p>
+<p>I’m also going to save why I chose beancount over ledger for another post. The basics are:</p>
+<ul>
+<li>Beancount (like HLedger) reads the file then orders the transactions before processing; Ledger processes them in the order they appear. This means with beancount I can lay out my files anyway I want.</li>
+<li>Strict rules on writing transaction. This is the bit I touch, I’m bound to do it wrong.</li>
+<li>Being able to close accounts when they’re done, so they don’t appear anymore in reports etc.</li>
+<li>Cleaner (in my opinion) way of balance assertions</li>
+<li>I found the query syntax easier to understand</li>
+<li>and some other misc things.</li>
+</ul>
+<p>The thing that made me switch? Seeing <a href="https://github.com/beancount/fava">fava</a>. This is an awesome project and the author has made several other contributions to the beancount world, one of which is the organised <a href="https://aumayr.github.io/beancount-docs-static/">docs</a>.</p>
+<p>Beancount is by no means perfect, but it fits well in my system.</p>
+</section>
+</section>
+<section id="the-system" class="level2">
+<h2 class="anchored" data-anchor-id="the-system">The System</h2>
+<p>Now to talk about the parts that make up my finances system. These are all the tools/apps that I use which I’ll explain.</p>
+<p>Components:</p>
+<ul>
+<li><a href="http://furius.ca/beancount/">beancount</a>: The accounting tool written and maintained by Martin Blais.</li>
+<li><a href="https://github.com/beancount/fava">fava</a> A web interface to my data. Here’s a <a href="https://fava.pythonanywhere.com">demo</a>.</li>
+<li><a href="http://spacemacs.org/">spacemacs</a>: Emacs and Vim ready to go.</li>
+<li><a href="https://stackedit.io/">stackedit</a>: In-browser editor. Many alternatives out there.</li>
+<li><a href="https://keep.google.com">Google Keep</a>: Google’s note taking tool - good for quick notes on my phone on the go.</li>
+<li><a href="https://github.com/alexjj/money-scripts/blob/master/ukindexprices.py">Python price importer script</a>: Of my own creation</li>
+<li><a href="https://www.dropbox.com/">Dropbox</a>: Cross platform file syncing tool</li>
+<li><a href="https://www.pythonanywhere.com">pythonanywhere</a>: Host, run, and code Python in the cloud.</li>
+<li><a href="https://gitlab.com/users/sign_in">Gitlab</a>: Git as a service, and unlimited free private repos.</li>
+</ul>
+<p>The whole system is based around writing transactions that beancount can process and then analysing the data through fava.</p>
+<p>The other tools aid me in doing this at home and away, although away generally means at work.</p>
+</section>
+<section id="entering-data" class="level2">
+<h2 class="anchored" data-anchor-id="entering-data">Entering Data</h2>
+<section id="at-home" class="level3">
+<h3 class="anchored" data-anchor-id="at-home">At home</h3>
+<p>Plain text means any text editor will do. However, some people have written helpers, namely for <a href="https://bitbucket.org/blais/beancount/src/8b8bc8efbf51b6fcca0bfbb38a40fddcfd939a9e/src/elisp/beancount.el?at=default&amp;fileviewer=file-view-default">emacs</a>, <a href="https://github.com/nathangrigg/vim-beancount">vim</a>, and <a href="https://packagecontrol.io/packages/Beancount">sublime</a>. These generally auto complete account names and maybe a few other features like aligning the numbers and running <code>bean-check</code> to look for errors. The emacs beancount minor mode, written by Martin, has the most features - although not as many as ledger-mode, and if you already use emacs then it’s a no brainer. I’d tried emacs and vim in the past as I was curious as to what they were all about but as I’m not a developer and spend more time in Excel than anything else I didn’t have the time to learn them to get the most out of it.</p>
+<p>When I was using ledger I spent time in setting up emacs but it was all a bit messy and I felt like I was spending a lot of time just trying to setup emacs and not really doing what I wanted to be doing (plotting more account graphs of course!), that’s when I found <a href="http://spacemacs.org/">spacemacs</a>. This is a great project and bakes a whole load of great emacs plugins into a single and managed distribution. I probably only use a tiny percentage of the features but for editing and adding transactions is very slick. Check it out if you haven’t. Sublime text would probably be my next best option for editing my beancount file. It’s a lot easier to get started with and has some autocompletion, but not that great.</p>
+<p>Another reason why I stuck with emacs was to use <a href="http://orgmode.org/">org mode</a> to structure my file. With Ledger I quickly found having one file with everything didn’t work too well. Especially when using xacts comand from emacs to add a transaction, so I split it into individual account files and added includes to my master ledger file. This was okay, but meant I had to move between a lot of files and as ledger doesn’t rearrange transactions some reports and queries gave weird outputs. I worked around this by telling ledger to print everything to a ledger.all file then running queries and reports on that, but that was a pain. Probably there’s a better way to do it but I never found it.</p>
+<p>Anyway…I now have one file that’s broken into headers with org and I just open or close them to see transactions. e.g.</p>
+<ul>
+<li>Options</li>
+<li>Accounts</li>
+<li>Assets</li>
+<li>Bank 1</li>
+<li>Bank2</li>
+<li>Liabilities
+<ul>
+<li>Credit Card 1</li>
+<li>Mortgage</li>
+<li>Loan 2</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="spacemacs.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Plain Text"><img src="spacemacs.png" class="img-fluid figure-img" alt="Plain Text"></a></p>
+<figcaption>Plain Text</figcaption>
+</figure>
+</div>
+<p>I’m still learning all the keyboard commands but I can quickly add new transactions and make changes. I don’t use any importer tools (tools to take csv/ofx file from bank and convert into beancount input) as I tend to update once a week and there aren’t many transactions to add each time. Plus I like to look at each one and think about what we bought and if it was really worth it. This <a href="https://github.com/jbms/beancount-import">one</a> looks promising, and Martin is working on a feature as part of beancount to do this.</p>
+<p>These are the beancount minor-mode keys:</p>
+<p>Key | Action | Description ——- | —- ——————- | ———– C-c ’ | Insert Account | Bring up selection to choose an account C-c C-g | Set transaction flag | Change ! to * C-c r | Refresh account list | Read the file to update accounts for using <code>C-c '</code> C-c l | Runs bean-check | Opens a new window with the results C-c q | Query | Runs bean-query C-c x | Context | Shows other transaction related, bean-doctor context C-c k | Linked | Shows related transactions. Seems to be the same as context. C-c ; | Align to previous number | Aligns the costs to the transaction above C-c : | Align numbers | Should align all the numbers but doesn’t work for me. Could be spacemacs issue though.</p>
+<p>Spacemacs has good completion from helm (I think!) so I don’t use insert account. Mostly use the transaction flag, running bean-check and aligning to previous numbers.</p>
+<p>Once I’ve updated my transactions I commit the changes and push to my private repo on gitlab.</p>
+</section>
+<section id="and-away" class="level3">
+<h3 class="anchored" data-anchor-id="and-away">And Away</h3>
+<p>Sometimes I want to add some transactions when I’ve got some spare time at work, to save doing it at home in the evening, or if I’m away. All this really means is I need some way of editing my files from another computer. Depending on that other computer it can be really easy or really hard. My work is somewhere in between, I can generally access most websites but I can’t install anything and SSH is blocked. Other computers I’d use might be at someone’s house or in a public place and generally all I can guarantee is web access.</p>
+<p>Again, even just web access there are a multitude of options and I keep looking out for better ones. However, as it currently stands I use dropbox and stackedit. Dropbox also acts as a nice way to sync the file between my computers at home, and it offers version control from the website for every time the file is saved - which I’ve used! Dropbox doesn’t have a built-in editor, or it certainly doesn’t work for .beancount files, so I need something else to edit it. That’s where I use stackedit. It can open files from Dropbox and Google Drive and save things to various places too. It’s meant as an authoring site for websites as it’s primarily a markdown editor. There are a bunch of these sites so whichever you like. Writebox for Chrome is also a nice app. There’s no autocompletion or fancy features but generally I’m copying and pasting old transactions and updating the date and amount 90% of the time. It’s not as efficient but if I’m making use of deadtime it’s efficient to me.</p>
+<p>For quick notes from my phone, such as significant cash transactions or ones with store cards I rarely use (and often forget to check), I use google keep. I can add a note very quickly and it saves the time and date automatically and I just add the key info. I then look at this later and transcribe into beancount at home and archive the note. I use Google Keep for other random notes but any note app you use would work. The key was finding something with a good mobile interface for quick input.</p>
+<p><em>2016-03-03 Update: I now use Gitlab to host my beancount files so I only update on the gitlab website if I’m not at home. Although I’ve found it better just to use Google Keep and update properly at home (I always forget to pull changes when at home!).</em></p>
+</section>
+</section>
+<section id="beancount-setup" class="level2">
+<h2 class="anchored" data-anchor-id="beancount-setup">Beancount Setup</h2>
+<p>One of the hardest parts to getting to use beancount was navigating the <a href="http://furius.ca/beancount/doc/index">docs</a> to figure out how to use it. Not that the docs are bad in content, far from it. Martin writes huge quantities of high quality documents. These are hosted on google docs and makes it super easy for others to comment, make corrections and ask questions. No other project have I been able to so easily make updates or clarify points as easily. The only downside is you can’t search across all of the files to find some particular item. Generally I have to open up two or three docs that I think the answer might be in. When I first started using it I literally opened every doc in a separate tab and read through them all and constantly reference between them. <a href="https://github.com/aumayr">Dominik Aumayr</a> has made a nice sphinx generated site that pulls these links together although with the docstrings from the code in his <a href="https://aumayr.github.io/beancount-docs-static/">site</a>. You’ll still need to read a lot of them but it’s a good starting place, and I think him and Martin are working to pull the content of Google Docs into it.</p>
+<p><em>So read all the docs!</em></p>
+<p>These are good to get going:</p>
+<ul>
+<li><a href="https://docs.google.com/document/d/1P5At-z1sP8rgwYLHso5sEy3u4rMnIUDDgob9Y_BYuWE/">Getting started</a></li>
+<li><a href="https://docs.google.com/document/d/1G-gsmwK551lSyuHboVLW3xbLhh99JfoKIbNnZSJxteE/">Tutorial</a></li>
+<li><a href="https://aumayr.github.io/beancount-docs-static/cookbook/index.html">Cookbooks</a></li>
+</ul>
+<p>I’m only going to show you the basics to get started, and point out some (probably not all) the differences to ledger.</p>
+<p>Compared to ledger, beancount requires more “settings” in the file. You have to open all your accounts, declare commodities and generally be more descriptive. I like this as it reduces the chances of errors in either what I type in or what beancount thinks I want to happen.</p>
+<section id="your-file.beancount" class="level3">
+<h3 class="anchored" data-anchor-id="your-file.beancount">Your file.beancount</h3>
+<p>So a basic file will start like:</p>
+<pre class="org-mode"><code>;; -*- mode: org; mode: beancount; -*-
+;; My legder file
+
+* Options ; Beancount options
+
+option "title" "My Finances"
+option "operating_currency" "USD" ; The main currencies you use
+option "operating_currency" "ABC"
+option "operating_currency" "GBP"
+
+** Accounts ; Open all the accounts you have
+
+2016-02-28 open Assets:BC:Bank:Checking    ABC ; You can specify commodities
+2016-02-28 open Assets:US:Bank:Savings
+2016-02-28 open Liabilities:UK:Bank:Loan
+2016-02-28 open Liabilities:US:Bank:Credit
+2016-02-28 open Equity:Opening-Balances
+
+; When you start you have existing balances
+; one way to manage this is to have an opening balance transaction.
+; Alternatively you can use balance and pad.
+
+** Opening Balances
+2016-02-28 * "Opening Balances"
+    Assets:BC:Bank:Checking          1000.00 ABC
+    Assets:US:Bank:Savings            500.00 USD
+    Liabilities:UK:Bank:Loan        -1000.00 GBP
+    Liabilities:US:Bank:Credit      -1890.00 USD
+    Equity:Opening-Balances
+
+* Commodities ; Declaring cash and stocks and imaginary commodities you use
+
+* Banking ; Keep transactions under here for banks
+ - US
+   + Bank 1 ; Org more sub headings for each country/bank
+
+* Liabilities ; e.g. credit card transactions
+; again sub divided by country/accounts
+
+* Investments ; accounts related to investing
+
+* Another other accounts or ways to divide up your system
+
+* Prices
+; Price data, or maybe an include to a price file</code></pre>
+<p>It’s probably worthwhile looking at some of the example beancount files Martin has in his <a href="https://bitbucket.org/blais/beancount/src/8b8bc8efbf51/examples/?at=default">repo</a>. Either example.beancount or files under the folders.</p>
+<p>A basic transaction looks like this:</p>
+<pre><code>YYYY-MM-DD * "Payee" "Optional Description" #optional-tag
+    Account:Category:Sub-Category  1234.00 XYZ
+    Account:Category:Sub-Category  -123.34 XYZ ;Optional Comment
+    Account:Category:Sub-Category</code></pre>
+<p>Some differences from ledger:</p>
+<ul>
+<li>Account can only be:
+<ul>
+<li>Assets</li>
+<li>Liabilities</li>
+<li>Equity</li>
+<li>Income</li>
+<li>Expenses</li>
+</ul></li>
+<li>The <code>*</code> has to be present, or it can be a <code>!</code>. Generally <code>!</code> means uncleared and <code>*</code> cleared.</li>
+<li>The payee and description must be in “quotes”.</li>
+<li>Tags are #</li>
+<li>Prices are in this format:</li>
+</ul>
+<pre><code>2016-02-25 price GBP                  1.40 USD</code></pre>
+<p>You have unlimited sub-categories, but a good design is: <code>Account:Country:Institution:Account-type</code></p>
+<p>e.g. <code>Assets:US:Chase:Checking</code></p>
+<p>For expenses I got a lot of good inspiration from the <a href="https://www.mint.com/mint-categories">Mint list</a>. However, I’d suggest you start small and grow as you use it.</p>
+</section>
+</section>
+<section id="analysing-data-in-your-browser" class="level2">
+<h2 class="anchored" data-anchor-id="analysing-data-in-your-browser">Analysing data in your browser</h2>
+<p>This is my favourite part! You can do everything from the command line but I really enjoy the <a href="https://github.com/aumayr/fava">fava</a> tool to explore my data:</p>
+<p><img src="fava-screenshot-01.png" class="img-fluid" alt="Income Statement"> <img src="fava-screenshot-02.png" class="img-fluid" alt="Tree Map"> <img src="fava-screenshot-03.png" class="img-fluid" alt="Balance Sheet"> <img src="fava-screenshot-05.png" class="img-fluid" alt="Source"></p>
+<p>Instructions to install it from the <a href="https://github.com/aumayr/fava#installation">github repo</a>: Install it from pip:</p>
+<pre><code>sudo pip3 install beancount-fava</code></pre>
+<p>From command line run it with:</p>
+<pre><code>fava /Volumes/Ledger/example.beancount</code></pre>
+<p>Go to: http://127.0.0.1:5000</p>
+<p>It’s mostly self explanatory to navigate and use. Don’t forget to check out the <a href="http://fava.pythonanywhere.com/">demo</a>.</p>
+<p>Beancount includes the <code>bean-query</code> command which allows you to enter sql like code (bql - bean query language) to generate some reports. Fava has a view that allows you to enter your bql and see the result on the page and even export the data to CSV/Excel. Here’s a brief example:</p>
+<p>Go to Custom Query and enter:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>, <span class="kw">account</span>, <span class="fu">sum</span>(<span class="dt">number</span>) <span class="kw">as</span> Total, currency</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> <span class="op">=</span> <span class="dv">2016</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">account</span> ~ <span class="st">'Expenses'</span> <span class="kw">OR</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">account</span> ~ <span class="st">'Income'</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">month</span>, <span class="kw">account</span>, currency</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">month</span>, currency, <span class="kw">Account</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>FLATTEN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="query.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="bean-query from fava"><img src="query.png" class="img-fluid figure-img" alt="bean-query from fava"></a></p>
+<figcaption>bean-query from fava</figcaption>
+</figure>
+</div>
+<p>If you add them to your beancount file using <code>query</code> entry and then they appear as options on the web UI</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2016</span><span class="op">-</span><span class="dv">02</span><span class="op">-</span><span class="dv">20</span> <span class="kw">query</span> <span class="ot">"Monthly Totals - 2016"</span> <span class="ot">"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>, <span class="kw">account</span>, <span class="fu">sum</span>(<span class="dt">number</span>) <span class="kw">as</span> Total, currency</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> <span class="op">=</span> <span class="dv">2016</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">account</span> ~ <span class="st">'Expenses'</span> <span class="kw">OR</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">account</span> ~ <span class="st">'Income'</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">month</span>, <span class="kw">account</span>, currency</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">month</span>, currency, <span class="kw">Account</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>FLATTEN</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ot">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A bean-query cookbook site has started where you can submit your queries and see others, check it out for more <a href="https://aumayr.github.io/beancount-sql-queries/">ideas</a>. The full bean-query documentation is <a href="http://furius.ca/beancount/doc/query">here</a>.</p>
+<section id="beancount-data-analysis-extras" class="level3">
+<h3 class="anchored" data-anchor-id="beancount-data-analysis-extras">Beancount data analysis extras</h3>
+<p>The only other analysis I do is taking the monthly summary data and putting it into a Google docs spreadsheet. This is so I can do some forecasting on how much I think I’m going to spend this year and then how much I could save. When I first started tracking expenses I became a bit obsessed and didn’t buy anything, I was trying to maximise how much I saved. However, this soon got tiring and a little depressing. Yes, saving for the future/rainy days is very important but I should still be able to enjoy myself now. I figured it would be better if I had a target savings amount, and as long as I met that, I could spend the rest on “luxuries”. In fact this probably helps me reach my goals but not making saving a chore. So the spreadsheet estimates how much I could save and then I set my target based on that. When I want to buy something I don’t need, like a new camera, I can see what my trend is and know either if I can get it or how long I should wait before I can buy it.</p>
+<p>This is only going to get easier once PIVOT BY is released for bean-query.</p>
+<p>Within beancount itself there is the bean-report function, a lot (perhaps all) of these reports are covered in fava but it’s a quick tool to spit out something if you need it in a hurry from the command line.</p>
+<p>They’re generated with <code>bean-report FILENAME.beancount {report name}</code>. Running –help against bean-report will show a list of the reports and what they do. This can also print out your transactions in hledger/ledger format in case you want to use one of those tools, although special features of (h)ledger may not be covered.</p>
+</section>
+</section>
+<section id="free-fava-hosting" class="level2">
+<h2 class="anchored" data-anchor-id="free-fava-hosting">Free fava hosting</h2>
+<p>Wouldn’t it be great to access fava, this incredible tool, from anywhere? Given the demo is hosted on pythonanywhere, I figured I should be able to host my own beancount file there too. Plus I knew from using pythonanywhere before there’s a really easy password protection option you can setup to keep your data hidden. So here’s what to do:</p>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>Create an account at <a href="https://www.pythonanywhere.com">pythonanywhere</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="web.apps.PNG" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Make a new web app"><img src="web.apps.PNG" class="img-fluid figure-img" alt="Make a new web app"></a></p>
+<figcaption>Make a new web app</figcaption>
+</figure>
+</div>
+<p>Add a new web app:</p>
+<ol type="1">
+<li>Manual configuration</li>
+<li>Python 3.4</li>
+</ol>
+<p>Once it’s made, edit WSGI under Code and replace everything with this. Adjust the location of your file and config.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fava.application <span class="im">import</span> app <span class="im">as</span> application</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fava.application <span class="im">import</span> load_file</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>application.config[<span class="st">'BEANCOUNT_FILE'</span>] <span class="op">=</span> <span class="st">'/home/USER/money.beancount'</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>load_file()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Save it and go back to the webapp page. Add a user and password at the bottom, I’d recommend <strong>NOT</strong> your pythonanywhere user/password and something long and unique, preferably generated and saved in a password manager like <a href="https://www.keepassx.org/">KeePassX</a>. <img src="password.PNG" class="img-fluid" alt="Add a password"> Now we need to install fava, to do this we’re going to use a script that’ll also be used for updating fava automatically.</p>
+<section id="fava-installation" class="level4">
+<h4 class="anchored" data-anchor-id="fava-installation">Fava Installation</h4>
+<p>Again, inspired by the <a href="https://github.com/aumayr/fava/tree/master/util/pythonanywhere/fava">fava demo site</a> lets set it up so new updates are automatically installed.</p>
+<p>From the dashboard, go to consoles and start a Bash console.</p>
+<p>Let’s pull a copy of the code, this isn’t necessary but might be useful in the future.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/aumayr/fava.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to change the default settings, copy the config file to your home directory and update the wsgi above. The web server will then reference this. I’ve not found the need to change anything, but perhaps changing the <a href="https://github.com/aumayr/fava/blob/master/fava/default-settings.conf#L8-L9">theme</a> might be one you do.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/fava/fava/default-settings.conf ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You could always just pull the file directly from github if you don’t want to clone the whole project:</p>
+<pre><code>wget https://raw.githubusercontent.com/aumayr/fava/master/fava/default-settings.conf</code></pre>
+<p>If you use a settings file make sure you update the wsgi file above to reference it.</p>
+<p>Now we need to make the update script:</p>
+<pre><code>nano update.sh</code></pre>
+<p>Add this code to it, ensuring you change the USER name.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add user bin</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:/home/USER/.local/bin</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade fava</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install <span class="at">--user</span> <span class="at">--upgrade</span> beancount-fava</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reload web page</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> /var/www/USER_pythonanywhere_com_wsgi.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Make it executable and run it.</p>
+<pre class="shell"><code>chmod +x update.sh
+./update.sh</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="console.PNG" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Installing fava from pip"><img src="console.PNG" class="img-fluid figure-img" alt="Installing fava from pip"></a></p>
+<figcaption>Installing fava from pip</figcaption>
+</figure>
+</div>
+<p>Your site should now be working, but we don’t have a beancount file there. To test it out you could just manually upload your file from the Files tab, along with any include files.</p>
+<p>Go to https://USER.pythonanywhere.com, enter your username and password and there’s your beancount data on the web! If it doesn’t work try reloading from the Web config page. If it still doesn’t work, check all your files and variable names.</p>
+<p><em>pythonanywhere does support SSL (https) but doesn’t auto re-write so make sure you enter it into your browser.</em></p>
+</section>
+<section id="automagicness" class="level4">
+<h4 class="anchored" data-anchor-id="automagicness">Automagicness</h4>
+<p>To get fava to update automatically we simple go to the Schedule tab in the pythonanywhere dashboard and add a time and link to the update script, /home/USER/update.sh. If you find you run out of CPU usage, disable this and just do it manually every so often. I’d suggest setting the time to 23:55, so that way it runs and then your CPU limit gets reset at midnight.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="schedule.PNG" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="cron"><img src="schedule.PNG" class="img-fluid figure-img" alt="cron"></a></p>
+<figcaption>cron</figcaption>
+</figure>
+</div>
+<p>Now to automatically get your beancount file. I’m going to assume you don’t want to pay for pythonanywhere - as great as it is! I bring this up as it limits what methods you can push files to your account. SSH/rsync in or <strong>out</strong> of your account only work for paid accounts. If you do pay then you can setup a cron task on your home computer to push the file to your pythonanywhere account.</p>
+<section id="rsync-paid-only" class="level5">
+<h5 class="anchored" data-anchor-id="rsync-paid-only">Rsync (paid only)</h5>
+<p>I find having ssh config setup is useful to make rsync and ssh easier</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/config</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> pyanyw</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">HostName</span> ssh.pythonanywhere.com</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">port</span> 12345</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">User</span> your_pythonanywhere_user</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">IdentityFile</span> ~/.ssh/id_rsa_SERVER1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then add to your crontab with whatever frequency you’d like e.g.&nbsp;once a day at 4 am:</p>
+<pre class="shell"><code>0 4 * * * rsync -avzhP -e ssh /file/path/on/home/beancount.file "pyanyw:/home/USER/beancount.file"</code></pre>
+</section>
+<section id="auto-sync" class="level5">
+<h5 class="anchored" data-anchor-id="auto-sync">Auto sync</h5>
+<p>Two methods I’ve thought for this:</p>
+<ol type="1">
+<li><p>Dropbox. Turns out this won’t work on pythonanywhere, looks like they <a href="https://help.pythonanywhere.com/pages/UsingDropbox">tried</a> but couldn’t get it working. I use it as part of the rest of the whole finance system so would’ve been nice to use it here. I left dropbox as an option in to point this out in case you were wondering.</p></li>
+<li><p>Git / version control server This is a great way as you have version control and can add a pull command in the update script. If you want to make changes on the server and push back, you’d have to log into pythonanywhere and start a console to make a commit though. <a href="https://gitlab.com/">Gitlab</a> does free private repos, and since writing this post originally I’ve now setup a private gitlab repo.</p></li>
+</ol>
+<p>There’s two things you need to setup to use your gitlab repo automatically:</p>
+<section id="ssh-keys" class="level6">
+<h6 class="anchored" data-anchor-id="ssh-keys">SSH keys</h6>
+<p><em>Actually this isn’t needed if you only ever intend on pulling from gitlab. This is just so you can git push without needing your password.</em></p>
+<p>This allows passwordless access to your repo, essential if you want to automate it. It’s best to make a new key, something like id_gitlab.</p>
+<p>Open a bash console on pytonanywhere:</p>
+<pre><code>ssh-keygen -t rsa -C "$your_email"</code></pre>
+<p>Then add this key to the ‘My SSH Keys’ section under the ‘SSH’ tab in your user profile. Output it to the terminal with cat:</p>
+<pre><code>cat ~/.ssh/id_gitlab.pub</code></pre>
+<p>Make sure it’s the .pub one!</p>
+<p>Now we need to make pythonanywhere know of this key in a ssh config file.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/config</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> gitlab.com</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">RSAAuthentication</span> yes</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">IdentityFile</span> ~/.ssh/id_gitlab</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">User</span> mygitlabusername</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="update-our-update.sh-script" class="level6">
+<h6 class="anchored" data-anchor-id="update-our-update.sh-script">Update our update.sh script</h6>
+<p>Change the script to:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Update beancount file</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">-C</span> money/ pull</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add user bin</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:/home/alexjj/.local/bin</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Update fava</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install <span class="at">--user</span> <span class="at">--upgrade</span> beancount-fava</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Reload web page</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> /var/www/alexjj_pythonanywhere_com_wsgi.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now clone your gitlab repo, and update the update.sh and wsgi scripts to match your location. Restart the web server and now everything should be automatically updated and pulled daily!</p>
+<p>Just to note that if you edit the beancount file in fava and save it, the git pull won’t work as you’ll have uncommitted changed. So either commit the changes, or revert them. I’m considering setting up something to make it easier to commit changes, but I find I rarely want to add anything on fava as it involves too much typing compared to editing in spacemacs.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="finishing-touches" class="level2">
+<h2 class="anchored" data-anchor-id="finishing-touches">Finishing touches</h2>
+<p>Now you have the awesome fava tool to query, graph and analyse your data accessible from anywhere. If you have your own domain you can add a forwarding rule and point it at https://USER.pythonanywhere.com so you can go to myawesomemoneysite.com and there’s your data.</p>
+<p>I’d suggest subscribing to the mailing lists, or at least favouriting them on <a href="https://groups.google.com/forum/#!forum/beancount">google groups</a>, join the irc channels and trying it all yourself.</p>
+<p>Let me know if you have set this up and any improvements you’ve made!</p>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Plain Text</span>
+<span class="glightbox-desc lightbox-desc-2">bean-query from fava</span>
+<span class="glightbox-desc lightbox-desc-3">Make a new web app</span>
+<span class="glightbox-desc lightbox-desc-4">Installing fava from pip</span>
+<span class="glightbox-desc lightbox-desc-5">cron</span>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/alexjj/alexjj.com/blob/main/posts/2016/Managing-my-personal-finances-with-beancount/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/alexjj/alexjj.com/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
