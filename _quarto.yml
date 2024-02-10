@@ -6,7 +6,7 @@ website:
   description: "A weblog by me"
   site-url: https://alexjj.com
   repo-url: https://github.com/alexjj/alexjj.com
-  repo-actions: [source, issue]
+  repo-actions: [source]
   favicon: favicon.ico
   open-graph: true
   search:
