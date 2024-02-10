@@ -1,0 +1,41 @@
+project:
+  type: website
+
+website:
+  title: "Alex Johnstone"
+  description: "A weblog by me"
+  site-url: https://alexjj.com
+  repo-url: https://github.com/alexjj/alexjj.com
+  repo-actions: [source, issue]
+  favicon: favicon.ico
+  open-graph: true
+  search:
+    location: navbar
+    type: overlay
+    keyboard-shortcut: ["?", "H"]
+  navbar:
+    background: primary
+    logo: /img/cat-logo.png
+    left:
+      - text: "About"
+        href: about.qmd
+      - text: "Notes"
+        href: notes.qmd
+      - icon: rss-fill
+        href: index.xml
+    right:
+      - text: "Wiki"
+        href: https://wiki.alexjj.com
+        icon: globe
+      - text: "GM5ALX"
+        href: https://gm5alx.uk
+        icon: broadcast-pin
+
+format:
+  html:
+    theme: minty
+    fontsize: 1.1em
+    css: styles.css
+
+language:
+  search-box-placeholder: Search

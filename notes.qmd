@@ -1,0 +1,19 @@
+---
+title: "Notes"
+listing:
+  contents: notes
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: true
+  feed: false
+  fields: [title, table]
+  table-hover: true
+  field-display-names:
+    title: "Page"
+    table: "Contents"
+page-layout: article
+title-block-banner: false
+search: false
+---
