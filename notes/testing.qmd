@@ -1,6 +1,9 @@
 ---
 title: Testing Testing
 table: "Trying out Quarto things"
+format:
+    html:
+        code-fold: true
 ---
 
 ```{python}
