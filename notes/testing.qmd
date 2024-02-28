@@ -1,0 +1,9 @@
+---
+title: Testing Testing
+table: "Trying out Quarto things"
+---
+
+```{python}
+import ipywidgets as widgets
+widgets.IntSlider()
+```
