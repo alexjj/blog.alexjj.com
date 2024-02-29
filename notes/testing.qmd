@@ -4,9 +4,75 @@ table: "Trying out Quarto things"
 format:
   html:
     code-fold: true
+execute:
+  echo: false
 ---
 
 ```{python}
 import ipywidgets as widgets
-widgets.IntSlider()
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+
+gradient = widgets.IntSlider(
+    value=1,
+    min=-5,
+    max=5,
+    step=1,
+    description='Gradient:'
+)
+
+y = gradient.value * x
+display(gradient)
+plt.plot(x, y)
+
+```
+
+```{ojs}
+//| echo: false
+viewof gradient = slider({
+  min: -5,
+  max: 5,
+  step: 0.1,
+  value: 1,
+  title: "Gradient"
+})
+
+// Create a canvas element
+{
+  const canvas = DOM.canvas(400, 300);
+  const context = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+
+  // Define the line function
+  function drawLine(gradient) {
+    context.clearRect(0, 0, width, height);
+    context.beginPath();
+    context.moveTo(0, 0);
+    context.lineTo(width, gradient * width);
+    context.strokeStyle = "blue";
+    context.stroke();
+  }
+
+  // Observe changes in the gradient value
+  {
+    const update = {
+      width,
+      height,
+      value: viewof gradient
+    };
+    viewof gradient.observe(function(value) {
+      update.value = value;
+      drawLine(value);
+    });
+  }
+
+  // Draw initial line
+  drawLine(viewof gradient.value);
+
+  // Return canvas
+  return canvas;
+}
 ```
