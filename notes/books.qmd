@@ -10,6 +10,8 @@ table: "A list of the books I've read"
 
 ### 2024
 
+* _Children of Ruin_, (2019), Adrian Tchaikovsky, 576 pp
+* _Children of Time_, (2015), Adrian Tchaikovsky, 609 pp
 * _The Willful Princess and the Piebald Prince_, (2013), Robin Hobb, 159 pp
 * _Assassin's Fate_, (2017), Robin Hobb, 952 pp
 * _Fool's Quest_, (2015), Robin Hobb, 757 pp
