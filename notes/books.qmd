@@ -10,6 +10,7 @@ table: "A list of the books I've read"
 
 ### 2024
 
+* _The Curse of Chalion_, (2001), Lois McMaster Bujold, 512 pp
 * _Children of Ruin_, (2019), Adrian Tchaikovsky, 576 pp
 * _Children of Time_, (2015), Adrian Tchaikovsky, 609 pp
 * _The Willful Princess and the Piebald Prince_, (2013), Robin Hobb, 159 pp
