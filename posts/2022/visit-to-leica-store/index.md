@@ -2,7 +2,7 @@
 title: "Visiting the London Leica Store"
 date: 2022-09-17
 subtitle: "A brief visit to the Leica store in Mayfair"
-categories: ["Leica", "Photograpy", "Gear"]
+categories: ["Leica", "Photography"]
 image: leica-mayfair-thumb.jpg
 ---
 

@@ -2,7 +2,7 @@
 title: "Choosing between the Fuji 50mm f/2 and the 60mm f/2.4"
 subtitle: "Which is better?"
 date: 2022-12-18
-categories: ["Fuji", "Photography", "Gear"]
+categories: ["Fuji", "Photography"]
 image: fuji-50-60-thumb.jpg
 ---
 

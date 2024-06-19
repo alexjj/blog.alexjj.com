@@ -2,7 +2,7 @@
 title: "Compact Cameras"
 date: 2022-06-21
 subtitle: "An unnecessary journey into the world of compact cameras"
-Tags: ["Photography", "Gear"]
+Tags: ["Photography"]
 image: ricohgr3-thumb.jpg
 ---
 

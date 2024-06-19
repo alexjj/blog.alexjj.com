@@ -1,6 +1,6 @@
 ---
 title: "Finding a camera for my dad"
-categories: ["Photography", "Gear"]
+categories: ["Photography"]
 date: 2022-10-17
 subtitle: "Discussing options for a camera for my dad"
 image: F100-thumb.jpeg
