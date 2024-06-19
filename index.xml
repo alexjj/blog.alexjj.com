@@ -9,7 +9,7 @@
 <link>https://alexjj.com/</link>
 <atom:link href="https://alexjj.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A weblog by me</description>
-<generator>quarto-1.4.553</generator>
+<generator>quarto-1.4.555</generator>
 <lastBuildDate>Thu, 15 Feb 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Finishing the Realm of the Enderlings Series</title>
@@ -27,7 +27,7 @@
 <p>I don’t really want to write a detailed review, as I’m not very good at it and there are some many better ones online, but I would recommend these to anyone who enjoys a good story. There’s sadness and bad times but they do end satisfactorily, other than wishing there were more.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="realm.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="All the books"><img src="https://alexjj.com/posts/2024/Realm of the Enderlings/realm.jpg" title="All the books - from robinhobb.com" class="img-fluid figure-img" alt="All the books"></a></p>
+<p><a href="realm.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="All the books"><img src="https://alexjj.com/posts/2024/Realm of the Enderlings/realm.jpg" title="All the books - from robinhobb.com" class="img-fluid figure-img" alt="All the books"></a></p>
 <figcaption>All the books</figcaption>
 </figure>
 </div>
@@ -55,7 +55,7 @@
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Scotland’s government has decided that from next year (from a tax perspective) they’ll be adding <em>another</em> tax band to Scotland. A 45 per cent income tax band for earnings between £75,000 and £125,140. Plus fiddling with the ranges and percentages of the other bands.</p>
 <p>So from the 6th April 2024 these will be the rates:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th><strong>Bands</strong></th>
@@ -97,7 +97,7 @@
 </tbody>
 </table>
 <p>The current ones are:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th><strong>Bands</strong></th>
@@ -136,7 +136,7 @@
 <p>The personal allowance (0%) remains the same at £12,570 (regardless of inflation, <strong>cough</strong> stealth tax <strong>cough</strong>) and the reduction of this between £100,000 to £125,140 by £1 for every £2.</p>
 <p>I’m in the process of making myself a financial forecasting tool to figure out how much I should split between my ISA and pension, in the naive attempt to be financially independent by the time I’m 50. The first part of that was making a function to calculate income tax, and whilst I was making it, I thought it might be interesting to see how these income tax changes impact everyone’s salary, from £0 to £200k.</p>
 <p>For the record, here’s England’s tax bands:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th><strong>Bands</strong></th>
@@ -461,7 +461,7 @@ background-color: null;
 font-style: inherit;">2</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="compare.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Compare the bands"><img src="https://alexjj.com/posts/2024/changes-to-scottish-tax-bands/compare.png" title="Comparing the bands" class="img-fluid figure-img" alt="Compare the bands"></a></p>
+<p><a href="compare.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Compare the bands"><img src="https://alexjj.com/posts/2024/changes-to-scottish-tax-bands/compare.png" title="Comparing the bands" class="img-fluid figure-img" alt="Compare the bands"></a></p>
 <figcaption>Compare the bands</figcaption>
 </figure>
 </div>
@@ -470,7 +470,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Let’s just have a look at the change between them to make it more obvious.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="change.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Delta between tax years"><img src="https://alexjj.com/posts/2024/changes-to-scottish-tax-bands/change.png" title="Delta between tax years" class="img-fluid figure-img" alt="Delta between tax years"></a></p>
+<p><a href="change.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Delta between tax years"><img src="https://alexjj.com/posts/2024/changes-to-scottish-tax-bands/change.png" title="Delta between tax years" class="img-fluid figure-img" alt="Delta between tax years"></a></p>
 <figcaption>Delta between tax years</figcaption>
 </figure>
 </div>
@@ -481,7 +481,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Without getting too political, there are the numbers. Make of it what you will. Here’s England vs.&nbsp;the new Scottish bands.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="vsengland.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Delta between Scotland and England"><img src="https://alexjj.com/posts/2024/changes-to-scottish-tax-bands/vsengland.png" title="Delta between Scotland and England]" class="img-fluid figure-img" alt="Delta between Scotland and England"></a></p>
+<p><a href="vsengland.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Delta between Scotland and England"><img src="https://alexjj.com/posts/2024/changes-to-scottish-tax-bands/vsengland.png" title="Delta between Scotland and England]" class="img-fluid figure-img" alt="Delta between Scotland and England"></a></p>
 <figcaption>Delta between Scotland and England</figcaption>
 </figure>
 </div>
@@ -539,14 +539,14 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>There’s a website, <a href="https://onetypedpage.com/">onetypedpage.com</a>, which is just that. Each day people submit a photo of their typed page and it gets hosted on this blog. I’ve known about it for a long time but only recently started going back to it. There appears to be some comments about moderation and conflict, but as far as I ever saw it was a quiet enjoyable site to read through with a cup of tea.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="typing-thumb.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="A dream brought to life"><img src="https://alexjj.com/posts/2023/one-typed-page/typing-thumb.jpg" title="A dream brought to life" class="img-fluid figure-img" alt="A dream brought to life"></a></p>
+<p><a href="typing-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="A dream brought to life"><img src="https://alexjj.com/posts/2023/one-typed-page/typing-thumb.jpg" title="A dream brought to life" class="img-fluid figure-img" alt="A dream brought to life"></a></p>
 <figcaption>A dream brought to life</figcaption>
 </figure>
 </div>
 <p>This morning I decided I’d submit a post to it. It’s not there yet but maybe later today or tomorrow it will be. It’s mostly a letter about nothing. Here it is:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="typing.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="One Typed Page"><img src="https://alexjj.com/posts/2023/one-typed-page/typing.jpg" title="One Typed Page" class="img-fluid figure-img" alt="One Typed Page"></a></p>
+<p><a href="typing.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="One Typed Page"><img src="https://alexjj.com/posts/2023/one-typed-page/typing.jpg" title="One Typed Page" class="img-fluid figure-img" alt="One Typed Page"></a></p>
 <figcaption>One Typed Page</figcaption>
 </figure>
 </div>
@@ -621,7 +621,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>We recently inherited a nice bureau from my wife’s grandparents, and her mum kindly brought it up to our house. We also got various little knick-knacks, house items, recipe books and consumable things like notepads and sewing stuff. Still to find homes for it all but the first thing I wanted to test out was the bureau.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="writing-nook-1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Now I’m creative"><img src="https://alexjj.com/posts/2023/A new writing nook/writing-nook-1.jpg" title="Now I'm creative" class="img-fluid figure-img" alt="Now I’m creative"></a></p>
+<p><a href="writing-nook-1.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Now I’m creative"><img src="https://alexjj.com/posts/2023/A new writing nook/writing-nook-1.jpg" title="Now I'm creative" class="img-fluid figure-img" alt="Now I’m creative"></a></p>
 <figcaption>Now I’m creative</figcaption>
 </figure>
 </div>
@@ -630,7 +630,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Hopefully we’ll keep ours a little tidier than that!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="writing-nook-2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Analogue level: All"><img src="https://alexjj.com/posts/2023/A new writing nook/writing-nook-2.jpg" title="Analogue level: All" class="img-fluid figure-img" alt="Analogue level: All"></a></p>
+<p><a href="writing-nook-2.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Analogue level: All"><img src="https://alexjj.com/posts/2023/A new writing nook/writing-nook-2.jpg" title="Analogue level: All" class="img-fluid figure-img" alt="Analogue level: All"></a></p>
 <figcaption>Analogue level: All</figcaption>
 </figure>
 </div>
@@ -658,7 +658,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="gm5alx-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Tea and Radio!"><img src="https://alexjj.com/posts/2023/new-blog/gm5alx-thumb.jpg" title="Tea and Radio!" class="img-fluid figure-img" alt="Tea and Radio!"></a></p>
+<p><a href="gm5alx-thumb.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Tea and Radio!"><img src="https://alexjj.com/posts/2023/new-blog/gm5alx-thumb.jpg" title="Tea and Radio!" class="img-fluid figure-img" alt="Tea and Radio!"></a></p>
 <figcaption>Tea and Radio!</figcaption>
 </figure>
 </div>
@@ -685,7 +685,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="outside.JPEG" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Radio setup outside"><img src="https://alexjj.com/posts/2023/amateur-radio/outside.JPEG" title="Radio Alfresco" class="img-fluid figure-img" alt="Radio setup outside"></a></p>
+<p><a href="outside.JPEG" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Radio setup outside"><img src="https://alexjj.com/posts/2023/amateur-radio/outside.JPEG" title="Radio Alfresco" class="img-fluid figure-img" alt="Radio setup outside"></a></p>
 <figcaption>Radio setup outside</figcaption>
 </figure>
 </div>
@@ -697,7 +697,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Like most electronic things, there is no one perfect device. Perhaps the £10,000 one could be classed as that, but it’s £10k and therefore not perfect 😅. We both had a similar shortlist of radios and spent many evenings debating the trade offs of them.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="G90.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="My first radio: Xiegu G90"><img src="https://alexjj.com/posts/2023/amateur-radio/G90.jpg" title="My first radio: Xiegu G90" class="img-fluid figure-img" alt="My first radio: Xiegu G90"></a></p>
+<p><a href="G90.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="My first radio: Xiegu G90"><img src="https://alexjj.com/posts/2023/amateur-radio/G90.jpg" title="My first radio: Xiegu G90" class="img-fluid figure-img" alt="My first radio: Xiegu G90"></a></p>
 <figcaption>My first radio: Xiegu G90</figcaption>
 </figure>
 </div>
@@ -707,14 +707,14 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>To cut a long story short, I went with what’s called an end fed half wave (EFHW) antenna, for the 40m band and up, making it 20m of wire. It works well on many bands, and the internal tuner on the Xiegu even gets a couple of others out of it.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="parts-thumb.JPEG" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Ready to put up the antenna"><img src="https://alexjj.com/posts/2023/amateur-radio/parts-thumb.JPEG" title="Ready to put up the antenna" class="img-fluid figure-img" alt="Ready to put up the antenna"></a></p>
+<p><a href="parts-thumb.JPEG" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Ready to put up the antenna"><img src="https://alexjj.com/posts/2023/amateur-radio/parts-thumb.JPEG" title="Ready to put up the antenna" class="img-fluid figure-img" alt="Ready to put up the antenna"></a></p>
 <figcaption>Ready to put up the antenna</figcaption>
 </figure>
 </div>
 <p>Armed with a big mug of tea, I was ready to put up the antenna. I would attach to the balcony on the first floor, and to a pole at the end of the garden. Or so I planned. Turned out the pole I bought was quite weak and bendy.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bendy.JPEG" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="A bit too bendy"><img src="https://alexjj.com/posts/2023/amateur-radio/bendy.JPEG" title="A bit too bendy" class="img-fluid figure-img" alt="A bit too bendy"></a></p>
+<p><a href="bendy.JPEG" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="A bit too bendy"><img src="https://alexjj.com/posts/2023/amateur-radio/bendy.JPEG" title="A bit too bendy" class="img-fluid figure-img" alt="A bit too bendy"></a></p>
 <figcaption>A bit too bendy</figcaption>
 </figure>
 </div>
@@ -722,7 +722,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>I thought I could raise it up by tying the pole to the nearby tree - this tree is unfortunately still quite small else I’d have used it in the first place.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="oops.JPG" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Oh Dear…"><img src="https://alexjj.com/posts/2023/amateur-radio/oops.JPG" title="Oh Dear..." class="img-fluid figure-img" alt="Oh Dear…"></a></p>
+<p><a href="oops.JPG" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Oh Dear…"><img src="https://alexjj.com/posts/2023/amateur-radio/oops.JPG" title="Oh Dear..." class="img-fluid figure-img" alt="Oh Dear…"></a></p>
 <figcaption>Oh Dear…</figcaption>
 </figure>
 </div>
@@ -731,14 +731,14 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>So how has it been? Pretty fun! I’ve spoken to people all over Europe, into Canada and the USA. I can often hear signals from all around the world - Falklands, Australia, Japan, Indonesia, South Africa, etc. - but they can’t hear me.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="qsos.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Voice Contacts Made"><img src="https://alexjj.com/posts/2023/amateur-radio/qsos.png" title="Voice Contacts Made" class="img-fluid figure-img" alt="Voice Contacts Made"></a></p>
+<p><a href="qsos.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Voice Contacts Made"><img src="https://alexjj.com/posts/2023/amateur-radio/qsos.png" title="Voice Contacts Made" class="img-fluid figure-img" alt="Voice Contacts Made"></a></p>
 <figcaption>Voice Contacts Made</figcaption>
 </figure>
 </div>
 <p>I’ve used the digital mode, FT8, which means I connect my computer to the radio and it communicates with other computers via radio. This doesn’t need nearly as much signal compared to noise to make a contact compared to voice contacts. The best part is that you can look up online (on <a href="https://pskreporter.info/">PSK Reporter</a>) who has heard your signal. So you don’t need to make a contact with them to know how far your signal has gone. I’ve been heard across the world with this, and have made real contacts with Australia, Brazil and Japan.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="psk.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Who’s heard me? The pins with times are who has"><img src="https://alexjj.com/posts/2023/amateur-radio/psk.jpg" title="Who's heard me? The pins with times are who has" class="img-fluid figure-img" alt="Who’s heard me? The pins with times are who has"></a></p>
+<p><a href="psk.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Who’s heard me? The pins with times are who has"><img src="https://alexjj.com/posts/2023/amateur-radio/psk.jpg" title="Who's heard me? The pins with times are who has" class="img-fluid figure-img" alt="Who’s heard me? The pins with times are who has"></a></p>
 <figcaption>Who’s heard me? The pins with times are who has</figcaption>
 </figure>
 </div>
@@ -768,7 +768,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bookcase-2-thumb.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Office Shelves"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-2-thumb.jpg" title="Office Shelves" class="img-fluid figure-img" alt="Office Shelves"></a></p>
+<p><a href="bookcase-2-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Office Shelves"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-2-thumb.jpg" title="Office Shelves" class="img-fluid figure-img" alt="Office Shelves"></a></p>
 <figcaption>Office Shelves</figcaption>
 </figure>
 </div>
@@ -777,7 +777,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Or maybe these decisions have never been made, and just the natural flow of life has resulted in books on shelves with the same choosing that results in driftwood on a beach.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bookcase-1.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Kids books on the landing"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-1.jpg" title="Kids books on the landing" class="img-fluid figure-img" alt="Kids books on the landing"></a></p>
+<p><a href="bookcase-1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Kids books on the landing"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-1.jpg" title="Kids books on the landing" class="img-fluid figure-img" alt="Kids books on the landing"></a></p>
 <figcaption>Kids books on the landing</figcaption>
 </figure>
 </div>
@@ -785,28 +785,28 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Recipe books in the kitchen. Some carefully written down instructions past down through the family, some old favourites of chefs long retired, some modern and cool but totally impractical for busy family life.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bookcase-6.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Kitchen bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-6.jpg" title="Kitchen bookshelf" class="img-fluid figure-img" alt="Kitchen bookshelf"></a></p>
+<p><a href="bookcase-6.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Kitchen bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-6.jpg" title="Kitchen bookshelf" class="img-fluid figure-img" alt="Kitchen bookshelf"></a></p>
 <figcaption>Kitchen bookshelf</figcaption>
 </figure>
 </div>
 <p>I always enjoy looking at other people’s bookcases, as a whole and at individual books. Always a good topic of conversation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bookcase-5.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Bedroom bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-5.jpg" title="Bedroom bookshelf" class="img-fluid figure-img" alt="Bedroom bookshelf"></a></p>
+<p><a href="bookcase-5.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Bedroom bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-5.jpg" title="Bedroom bookshelf" class="img-fluid figure-img" alt="Bedroom bookshelf"></a></p>
 <figcaption>Bedroom bookshelf</figcaption>
 </figure>
 </div>
 <p>I have a lot of ebooks too. These are very convenient to take with me on holiday and great for reading at night in bed. I can read for hours in the dark with my backlit ebook reader and no-one else is disturbed. But no-one else will really read those books unless I actively tell them or they come asking. These books are hidden away, never to provide entertainment for a curious passerby.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bookcase-3.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Boys’ bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-3.jpg" title="Boys' bookshelf" class="img-fluid figure-img" alt="Boys’ bookshelf"></a></p>
+<p><a href="bookcase-3.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Boys’ bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-3.jpg" title="Boys' bookshelf" class="img-fluid figure-img" alt="Boys’ bookshelf"></a></p>
 <figcaption>Boys’ bookshelf</figcaption>
 </figure>
 </div>
 <p>I suppose the next best thing to admiring books, is to actually read them. Maybe even write some thoughts down as you read them.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="bookcase-4.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Daughter’s bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-4.jpg" title="Daughter's bookshelf" class="img-fluid figure-img" alt="Daughter’s bookshelf"></a></p>
+<p><a href="bookcase-4.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Daughter’s bookshelf"><img src="https://alexjj.com/posts/2023/bookcases/bookcase-4.jpg" title="Daughter's bookshelf" class="img-fluid figure-img" alt="Daughter’s bookshelf"></a></p>
 <figcaption>Daughter’s bookshelf</figcaption>
 </figure>
 </div>
@@ -910,7 +910,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>This post sat as a draft for a long time when I was using blot. Whilst migrating my site to this new Hugo one I saw the pictures I took and thought I might as well write it up quickly.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="fuji-50-60-thumb.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Two fuji lenses"><img src="https://alexjj.com/posts/2022/fuji-50-or-60/fuji-50-60-thumb.jpg" title="Side by side" class="img-fluid figure-img" alt="Two fuji lenses"></a></p>
+<p><a href="fuji-50-60-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Two fuji lenses"><img src="https://alexjj.com/posts/2022/fuji-50-or-60/fuji-50-60-thumb.jpg" title="Side by side" class="img-fluid figure-img" alt="Two fuji lenses"></a></p>
 <figcaption>Two fuji lenses</figcaption>
 </figure>
 </div>
@@ -922,7 +922,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="comparison">Comparison</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="fuji-50-60-2.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Two lenses with hoods"><img src="https://alexjj.com/posts/2022/fuji-50-or-60/fuji-50-60-2.jpg" title="What a big hood you have" class="img-fluid figure-img" alt="Two lenses with hoods"></a></p>
+<p><a href="fuji-50-60-2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Two lenses with hoods"><img src="https://alexjj.com/posts/2022/fuji-50-or-60/fuji-50-60-2.jpg" title="What a big hood you have" class="img-fluid figure-img" alt="Two lenses with hoods"></a></p>
 <figcaption>Two lenses with hoods</figcaption>
 </figure>
 </div>
@@ -963,7 +963,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Doesn’t need to be a fancy printer, or perfectly colour matched. Just print them out on whatever you have. Don’t have a printer? <a href="https://www.canon.co.uk/printers/selphy-compact-photo-printers/">Get one of these</a> for immediate fun! Although a little pricier than a regular printer per photo. Or take advantage of the numerous offers online to print a bunch of 4x6s.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="print-photos-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Print them out"><img src="https://alexjj.com/posts/2022/print/print-photos-thumb.jpg" title="Print them out" class="img-fluid figure-img" alt="Print them out"></a></p>
+<p><a href="print-photos-thumb.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Print them out"><img src="https://alexjj.com/posts/2022/print/print-photos-thumb.jpg" title="Print them out" class="img-fluid figure-img" alt="Print them out"></a></p>
 <figcaption>Print them out</figcaption>
 </figure>
 </div>
