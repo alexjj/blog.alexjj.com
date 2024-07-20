@@ -10,6 +10,7 @@ table: "A list of the books I've read"
 
 ### 2024
 
+* _Children of Memory_, (2022), Adrian Tchaikovsky, 486 pp
 * _The Hallowed Hunt_, (2005), Lois McMaster Bujold, 448 pp
 * _Paladin of Souls_, (2003), Lois McMaster Bujold, 496 pp
 * _The Curse of Chalion_, (2001), Lois McMaster Bujold, 512 pp
