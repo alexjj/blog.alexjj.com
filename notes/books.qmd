@@ -10,6 +10,9 @@ table: "A list of the books I've read"
 
 ### 2024
 
+* _Penric's Fox_, (2017), Lois McMaster Bujold, 112 pp
+* _Penric's and the Shaman_, (2016), Lois McMaster Bujold, 117 pp
+* _Penric's Demon_, (2015), Lois McMaster Bujold, 103 pp
 * _Children of Memory_, (2022), Adrian Tchaikovsky, 486 pp
 * _The Hallowed Hunt_, (2005), Lois McMaster Bujold, 448 pp
 * _Paladin of Souls_, (2003), Lois McMaster Bujold, 496 pp
