@@ -10,6 +10,12 @@ table: "A list of the books I've read"
 
 ### 2024
 
+* _Knot of Shadows_, (2021), Lois McMaster Bujold, 111 pp
+* _The Assassins of Thasalon_, (2021), Lois McMaster Bujold, 308 pp
+* _Masquerade in Lodi_, (2020), Lois McMaster Bujold, 102 pp
+* _The Physicians of Vilnoc_, (2020), Lois McMaster Bujold, 126 pp
+* _The Orphans of Raspay_, (2019), Lois McMaster Bujold, 127 pp
+* _The Prisoner of Limnos_, (2017), Lois McMaster Bujold, 138 pp
 * _Penric's Fox_, (2017), Lois McMaster Bujold, 112 pp
 * _Penric's and the Shaman_, (2016), Lois McMaster Bujold, 117 pp
 * _Penric's Demon_, (2015), Lois McMaster Bujold, 103 pp
