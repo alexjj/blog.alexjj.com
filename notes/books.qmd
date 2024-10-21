@@ -10,6 +10,9 @@ table: "A list of the books I've read"
 
 ### 2024
 
+* _The Sunlit Man_, (2023), Brandon Sanderson, 447 pg
+* _Yumi and the Nightmare Painter_, (2023), Brandon Sanderson, 461 pg
+* _Tress of the Emerald Sea_, (2023), Brandon Sanderson, 443 pg
 * _Demon Daughter_, (2024), Lois McMaster Bujold, 153 pg
 * _Knot of Shadows_, (2021), Lois McMaster Bujold, 111 pg
 * _The Assassins of Thasalon_, (2021), Lois McMaster Bujold, 308 pg
