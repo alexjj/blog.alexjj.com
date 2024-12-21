@@ -4,8 +4,8 @@ project:
 website:
   title: "Alex Johnstone"
   description: "A weblog by me"
-  site-url: https://alexjj.com
-  repo-url: https://github.com/alexjj/alexjj.com
+  site-url: https://blog.alexjj.com
+  repo-url: https://github.com/alexjj/blog.alexjj.com
   repo-actions: [source]
   favicon: favicon.ico
   open-graph: true
