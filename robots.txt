@@ -1,1 +1,1 @@
-Sitemap: https://alexjj.com/sitemap.xml
+Sitemap: https://blog.alexjj.com/sitemap.xml
